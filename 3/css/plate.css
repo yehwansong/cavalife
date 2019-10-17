@@ -1,0 +1,93 @@
+@font-face {
+    font-family: albert_black;
+    src: url(../fonts/Albert-Black.woff);
+}@font-face {
+    font-family: albert_bold;
+    src: url(../fonts/Albert-Bold.woff);
+}@font-face {
+    font-family: albert_extrabold;
+    src: url(../fonts/Albert-Extrabold.woff);
+}@font-face {
+    font-family: albert_extralight;
+    src: url(../fonts/Albert-Extralight.woff);
+}@font-face {
+    font-family: albert_light;
+    src: url(../fonts/Albert-Light.woff);
+}@font-face {
+    font-family: albert_medium;
+    src: url(../fonts/Albert-Medium.woff);
+}@font-face {
+    font-family: albert_regular;
+    src: url(../fonts/Albert-Regular.woff);
+}@font-face {
+    font-family: albert_semibold;
+    src: url(../fonts/Albert-Semibold.woff);
+}@font-face {
+    font-family: albert_thin;
+    src: url(../fonts/Albert-Thin.woff);
+}
+div, span{
+    font-family: albert_medium;
+}
+html{
+  background-color: black;
+  color: white
+}
+body{
+	/*background-color: black;
+	color: white*/
+}
+.plate{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    transform: perspective(268.07px) rotateX(12deg) translateY(0vh) rotateY(6.6deg) translateZ(-100px);
+    transform-origin: center 80% ;
+}
+.text{
+    position: absolute;
+    transform: scaleY(1.1);
+    width: 400%;
+    height: 1007%;
+    left: -150%;
+    transform-origin: top;
+    /*transition: all 48000ms linear;*/
+    top: 0vh;
+    font-size: 18vh;
+    line-height: 19vh;
+    top: -300vh;
+    overflow: hidden;
+
+}
+.text_animate{
+  animation: animate 48000ms infinite alternate;
+  animation-timing-function: linear;
+}
+canvas{
+  margin: 0;
+  padding:0;
+  border:none !important;
+}
+@keyframes animate {
+  50% {
+    transform: translateY(-550vh);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
+}
+#container {
+  position: absolute;
+  display: block;
+  width: 80%;
+  height: 80%;
+  transition: translateX(-50%) translateY(-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /*cursor: none;*/
+  z-index: 1000
+  }

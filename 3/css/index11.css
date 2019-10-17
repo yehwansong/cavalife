@@ -1,0 +1,233 @@
+
+.box-img{
+  mix-blend-mode: multiply;
+  position: fixed;
+  background: rgba(0,0,0,0);
+  background-image: url('../img/albert_3.jpg');
+  opacity: 1;
+  /*background-blend-mode: multiply;*/
+  background-size: 400%;
+  z-index: 100000;
+  background-position: 0%;
+  transition: all 0.6s;
+  transition-timing-function: cubic-bezier(0,1,1,1.01); 
+  transform: translateZ(10000vw) !important;
+}
+#container{
+  transform: translateZ(10000vw) !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  left: 0 !important;
+  top: 0 !important;
+  transform:translate(0) !important;
+}
+#box-img1{
+  height: 5vw;
+  width: 10vw;
+  bottom:0;
+  left: 30vw;
+  background-position: 0%;
+}
+#box-img2{
+  height: 10vw;
+  width: 20vw;
+  bottom:10vw;
+  left: 40vw;
+  background-position: 0%;
+}
+#box-img3{
+  height: 5vw;
+  width: 10vw;
+  bottom:25vw;
+  left: 60vw;
+  background-position: 0%;
+}
+#box-img4{
+  height: 5vw;
+  width: 10vw;
+  bottom:30vw;
+  left: 60vw;
+  background-position: 0%;
+}
+#box-img5{
+  height: 5vw;
+  width: 10vw;
+  bottom:35vw;
+  left: 70vw;
+  background-position: 0%;
+}
+#box-img6{
+  height: 5vw;
+  width: 10vw;
+  bottom:40vw;
+  left: 80vw;
+  background-position: 0%;
+}
+#box-img7{
+  height: 5vw;
+  width: 10vw;
+  bottom:45vw;
+  left: 90vw;
+  background-position: 0%;
+}
+
+
+
+#box-img8{
+  height: 10vw;
+  width: 20vw;
+  bottom:20vw;
+  left: 20vw;
+  background-position: 0%;
+}
+
+#box-img9{
+  height: 7.5vw;
+  width: 15vw;
+  bottom:25vw;
+  left: 45vw;
+  background-position: 0%;
+}
+#box-img10{
+  height: 2.5vw;
+  width: 5vw;
+  bottom:35vw;
+  left: 65vw;
+  background-position: 0%;
+}
+#box-img11{
+  height: 2.5vw;
+  width: 5vw;
+  bottom:32.5vw;
+  left: 70vw;
+  background-position: 0%;
+}
+#box-img12{
+  height: 2.5vw;
+  width: 5vw;
+  bottom:40vw;
+  left: 75vw;
+  background-position: 0%;
+}
+#box-img13{
+  height: 2.5vw;
+  width: 5vw;
+  bottom:37.5vw;
+  left: 80vw;
+  background-position: 0%;
+}
+#box-img14{
+  height: 2.5vw;
+  width: 5vw;
+  bottom:42.5vw;
+  left: 90vw;
+  background-position: 0%;
+}
+#box-img15{
+  height: 5vw;
+  width: 10vw;
+  bottom:45vw;
+  left: 80vw;
+  background-position: 0%;
+}
+#box-img16{
+  height: 5vw;
+  width: 10vw;
+  bottom:50vw;
+  left: 70vw;
+  background-position: 0%;
+}
+#box-img17{
+  height: 10vw;
+  width: 20vw;
+  bottom:0vw;
+  left: 40vw;
+  background-position: 0%;
+}
+
+#box-img18{
+  height: 10vw;
+  width: 20vw;
+  bottom:50vw;
+  left: 20vw;
+  background-position: 0%;
+}
+
+#box-img19{
+  height: 7.5vw;
+  width: 15vw;
+  bottom:42.5vw;
+  left: 15vw;
+  background-position: 0%;
+}
+#box-img20{
+  height: 2.5vw;
+  width: 5vw;
+  bottom:35vw;
+  left: 15vw;
+  background-position: 0%;
+}
+#box-img21{
+  height: 2.5vw;
+  width: 5vw;
+  bottom:32.5vw;
+  left: 20vw;
+  background-position: 0%;
+}
+#box-img22{
+  height: 2.5vw;
+  width: 5vw;
+  bottom:40vw;
+  left: 25vw;
+  background-position: 0%;
+}
+#box-img23{
+  height: 2.5vw;
+  width: 5vw;
+  bottom:37.5vw;
+  left: 30vw;
+  background-position: 0%;
+}
+#box-img24{
+  height: 2.5vw;
+  width: 5vw;
+  bottom:42.5vw;
+  left: 70vw;
+  background-position: 0%;
+}
+#box-img25{
+  height: 5vw;
+  width: 10vw;
+  bottom:45vw;
+  left: 60vw;
+  background-position: 0%;
+}
+#box-img26{
+  height: 5vw;
+  width: 10vw;
+  bottom:50vw;
+  left: 50vw;
+  background-position: 0%;
+}
+#box-img27{
+  height: 10vw;
+  width: 20vw;
+  bottom:0vw;
+  left: 60vw;
+  background-position: 0%;
+}
+#box-img28{
+  height: 5vw;
+  width: 10vw;
+  bottom:10vw;
+  left: 80vw;
+  background-position: 0%;
+}
+
+
+.back_animate_1{
+  background-position: -85% !important;
+}
+.back_animate_2{
+  background-position: -200%;
+}
