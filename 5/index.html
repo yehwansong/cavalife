@@ -57,10 +57,14 @@ $( document ).ready(function() {
     var next_num
     var counter = 0
     var counter_2 = 0
+    var fast_rot_val = 0
+    var rotating_ing = false
+    var rotating_touch = false
   	animation_t()
   	var pressed = false
 	 function animation_t(){
 		if(!pressed){
+      rotating_touch = false
 			k = k - 0.1
 			$('#dia').css({'transform':'rotate('+k+'deg)'})
 
@@ -81,11 +85,13 @@ function easeOutQuart (t, b, c, d) {
 
 
 	function start(e){
-		pressed = true
+    if(!rotating_ing){
+        pressed = true
         sp = e.touches[0].clientX;
         mp = 0
         counter = 0
         counter_2 = 0
+    }
 	}
 	function move(e){
       setTimeout(function(){
@@ -96,27 +102,66 @@ function easeOutQuart (t, b, c, d) {
       $('#dia').css({'transform':'rotate('+(k + mp)+'deg)'})
 	}
 	function end(e){
-    console.log(counter)
-    if(counter < 15){
-      rotating(k,mp)
-      setTimeout(function(){
-        pressed = false
-        k = k + mp 
-      },1000)
+        console.log(mp>0)
+    if(counter < 15 && counter>3){
+      if(mp>0){
+        rotating(k,mp)
+      }else{
+        rotating_rev(k,mp)
+      }
     }else{
       pressed = false
       k = k + mp 
     }
 	}
-function rotating(k,mp){
+function rotating(j,mp){
+      rotating_ing = true
       counter_2++ 
-      $('#dia').css({'transform':'rotate('+(k + mp + easeOutQuart(counter_2*3,0,360,1000))+'deg)'})
-      console.log(easeOutQuart(counter_2*3,0,360,1000))
-      if(   counter_2<100){
-      setTimeout(function(){
-        rotating(k,mp)
-      }, 10);
+      fast_rot_val =  easeOutQuart(counter_2*3,0,180,1000)
+      $('#dia').css({'transform':'rotate('+(j + mp + fast_rot_val)+'deg)'})
+      $('#wrap').on('touchstart', function(e){
+          rotating_ing = false
+          rotating_touch = true
+          k = j + mp - fast_rot_val
+          start(e)
+          return;
+      })
+      if(!rotating_touch){
+        if(   fast_rot_val<=178 ){
+          setTimeout(function(){
+            rotating(j,mp)
+          }, 10);
+        }else{
+            rotating_ing = false
+            k = k + 180
+            pressed = false
+        }
       }
+}
+function rotating_rev(j,mp){
+      rotating_ing = true
+      counter_2++ 
+      fast_rot_val =  easeOutQuart(counter_2*3,0,180,1000)
+      $('#dia').css({'transform':'rotate('+(j + mp - fast_rot_val)+'deg)'})
+      $('#wrap').on('touchstart', function(e){
+          rotating_ing = false
+          rotating_touch = true
+          k = j + mp - fast_rot_val
+          start(e)
+          return;
+      })
+      if(!rotating_touch){
+        if(   fast_rot_val<=178){
+          setTimeout(function(){
+            rotating_rev(j,mp)
+          }, 10);
+        }else{
+            rotating_ing = false
+            k = k - 180
+            pressed = false
+        }
+      }
+  
 }
 })
 </script>
