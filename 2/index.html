@@ -57,6 +57,7 @@ $( document ).ready(function() {
   	var k = 0
     var next_num
     var counter = 0
+    var counter_t = 0
     var counter_2 = 0
     var fast_rot_val = 0
     var rotating_ing = false
@@ -64,23 +65,53 @@ $( document ).ready(function() {
     var rotating_rep
     var rotating_rev_rep
   	var pressed = false
-
+    var main_id
+    var vis_change = false
+    var range = 1
 setTimeout(function(){
     animation_t()
 },1000)
 function animation_t(){
+  console.log(range)
+  console.log(main_id)
+  counter_t++
+  if(counter_t%100 == 0){
+  }
 	if(!pressed){
     rotating_touch = false
-		k = k - 0.1
-		$('#dia').css({'transform':'rotate('+k+'deg)'})
-
+		k = k - 0.3
+	$('#dia').css({'transform':'rotate('+k+'deg)'})
   $('.nu a').removeClass('main')
-  $('#nu_'+-1*((Math.floor((k+10)/20)-1)%18)+' a').addClass('main')
-  $('#nu_'+(-1*((Math.floor((k+10)/20)-1)%18)+2)+' a').html((-1*((Math.floor((k+10)/20)-1)-2))%50)
+  // $('.nu').removeClass('visible')
+              main_id = -1*Math.floor((k+360000)/(360/14))%56
+  // main_id = -1*((Math.floor((k+(360/(14*2)))/14)-1)%14)
+  // console.log($('#nu_'+main_id+' a'))
+  $('#nu_'+main_id+' a').addClass('main')
+      if(range !== main_id){
+        console.log('h')
+        console.log($('#nu_'+((main_id+56-1)%56)))
+      $('.nu').removeClass('visible')
+      $('.main').addClass('visible')
+      $('#nu_'+((main_id+56-1)%56)).addClass('visible')
+      $('#nu_'+((main_id+56-2)%56)).addClass('visible')
+      $('#nu_'+((main_id+56-3)%56)).addClass('visible')
+      $('#nu_'+((main_id+56-4)%56)).addClass('visible')
+      $('#nu_'+((main_id+56-5)%56)).addClass('visible')
+      $('#nu_'+((main_id+56-6)%56)).addClass('visible')
+
+      $('#nu_'+((main_id+56)%56)).addClass('visible')
+      $('#nu_'+((main_id+56+1)%56)).addClass('visible')
+      $('#nu_'+((main_id+56+2)%56)).addClass('visible')
+      $('#nu_'+((main_id+56+3)%56)).addClass('visible')
+      $('#nu_'+((main_id+56+4)%56)).addClass('visible')
+      $('#nu_'+((main_id+56+5)%56)).addClass('visible')
+      $('#nu_'+((main_id+56+6)%56)).addClass('visible')
+        range = main_id
+      }
 	}
 		setTimeout(function(){
 			animation_t()
-		}, 10);
+		}, 30);
 }
 function easeOutQuart (t, b, c, d) {
     t /= d;
@@ -105,7 +136,6 @@ function move(e){
         counter ++
     }, 1);
         mp = (e.touches[0].clientX - sp)/10; 
-        console.log(mp)
     $('#dia').css({'transform':'rotate('+(k + mp)+'deg)'})
 }
 function end(e){
@@ -123,44 +153,93 @@ function end(e){
 function rotating(j,mp){
       rotating_ing = true
       counter_2++ 
-      fast_rot_val =  easeOutQuart(counter_2*3,0,180,600)
+      fast_rot_val =  easeOutQuart(counter_2*3,0,120,600)
       $('#dia').css({'transform':'rotate('+(j + mp + fast_rot_val)+'deg)'})
       $('#wrap').on('touchstart', function(e){
           rotating_ing = false
           rotating_touch = true
           k = j + mp + fast_rot_val
+          main_id = -1*Math.floor((k+360000)/(360/14))%56
+          $('#nu_'+main_id+' a').addClass('main')
+            if(range !== main_id){
+              console.log('h')
+              console.log($('#nu_'+((main_id+56-1)%56)))
+            $('.nu').removeClass('visible')
+            $('.main').addClass('visible')
+            $('#nu_'+((main_id+56-1)%56)).addClass('visible')
+            $('#nu_'+((main_id+56-2)%56)).addClass('visible')
+            $('#nu_'+((main_id+56-3)%56)).addClass('visible')
+            $('#nu_'+((main_id+56-4)%56)).addClass('visible')
+            $('#nu_'+((main_id+56-5)%56)).addClass('visible')
+            $('#nu_'+((main_id+56-6)%56)).addClass('visible')
+
+            $('#nu_'+((main_id+56)%56)).addClass('visible')
+            $('#nu_'+((main_id+56+1)%56)).addClass('visible')
+            $('#nu_'+((main_id+56+2)%56)).addClass('visible')
+            $('#nu_'+((main_id+56+3)%56)).addClass('visible')
+            $('#nu_'+((main_id+56+4)%56)).addClass('visible')
+            $('#nu_'+((main_id+56+5)%56)).addClass('visible')
+            $('#nu_'+((main_id+56+6)%56)).addClass('visible')
+              range = main_id
+          }
           start(e)
           return;
       })
-        if(  fast_rot_val<=178 ){
+        if(  fast_rot_val<=118 ){
             rotating_rep = setTimeout(function(){
                 rotating(j,mp)
             }, 10);
         }else{
             rotating_ing = false
-            k = k + 180
+            k = j + mp + fast_rot_val
             pressed = false
         }
 }
 function rotating_rev(j,mp){
       rotating_ing = true
       counter_2++ 
-      fast_rot_val =  easeOutQuart(counter_2*3,0,180,600)
+      fast_rot_val =  easeOutQuart(counter_2*3,0,120,600)
+
       $('#dia').css({'transform':'rotate('+(j + mp - fast_rot_val)+'deg)'})
       $('#wrap').on('touchstart', function(e){
           rotating_ing = false
           rotating_touch = true
           k = j + mp - fast_rot_val
+          main_id = -1*Math.floor((k+360000)/(360/14))%56
+          $('#nu_'+main_id+' a').addClass('main')
+            if(range !== main_id){
+              console.log('h')
+              console.log($('#nu_'+((main_id+56-1)%56)))
+            $('.nu').removeClass('visible')
+            $('.main').addClass('visible')
+            $('#nu_'+((main_id+56-1)%56)).addClass('visible')
+            $('#nu_'+((main_id+56-2)%56)).addClass('visible')
+            $('#nu_'+((main_id+56-3)%56)).addClass('visible')
+            $('#nu_'+((main_id+56-4)%56)).addClass('visible')
+            $('#nu_'+((main_id+56-5)%56)).addClass('visible')
+            $('#nu_'+((main_id+56-6)%56)).addClass('visible')
+
+            $('#nu_'+((main_id+56)%56)).addClass('visible')
+            $('#nu_'+((main_id+56+1)%56)).addClass('visible')
+            $('#nu_'+((main_id+56+2)%56)).addClass('visible')
+            $('#nu_'+((main_id+56+3)%56)).addClass('visible')
+            $('#nu_'+((main_id+56+4)%56)).addClass('visible')
+            $('#nu_'+((main_id+56+5)%56)).addClass('visible')
+            $('#nu_'+((main_id+56+6)%56)).addClass('visible')
+              range = main_id
+          }
           start(e)
           return;
       })
-        if(   fast_rot_val<=178){
+        if(   fast_rot_val<=118){
             rotating_rev_rep = setTimeout(function(){
                 rotating_rev(j,mp)
             }, 10);
         }else{
             rotating_ing = false
-            k = k - 180
+  // console.log(k)
+            k = j + mp - fast_rot_val
+  // console.log(k)
             pressed = false
         }  
 }
@@ -171,8 +250,10 @@ function rotating_rev(j,mp){
 
   }
   .main{
-    color: red;
+    /*color: red;*/
   font-size: 20vh !important;
+  background-size: auto 20%;
+  background-color: red
   }
 body {
   margin: 0;
@@ -207,95 +288,305 @@ html, body{
     position: absolute;
 	text-align: center;
 	line-height: 1;
-  pointer-events: none
+  pointer-events: none;
 }
-
-#nu_1{
+#dia>div{
+  opacity: 0
+}
+.visible{
+  opacity: 1 !important
+}
+#dia>div:nth-child(14n+1){
   transform:rotate(0deg);
 }
-#nu_2{
-  transform:rotate(20deg);
+#dia>div:nth-child(14n+2){
+  transform:rotate(25.7deg);
 }
-#nu_3{
-  transform:rotate(40deg);
+#dia>div:nth-child(14n+3){
+  transform:rotate(51.4deg);
 }
-#nu_4{
-  transform:rotate(60deg);
+#dia>div:nth-child(14n+4){
+  transform:rotate(77.1deg);
 }
-#nu_5{
-  transform:rotate(80deg);
+#dia>div:nth-child(14n+5){
+  transform:rotate(102.8deg);
 }
-#nu_6{
-  transform:rotate(100deg);
+#dia>div:nth-child(14n+6){
+  transform:rotate(128.5deg);
 }
-#nu_7{
-  transform:rotate(120deg);
+#dia>div:nth-child(14n+7){
+  transform:rotate(154.2deg);
 }
-#nu_8{
-  transform:rotate(140deg);
+#dia>div:nth-child(14n+8){
+  transform:rotate(179.9deg);
 }
-#nu_9{
-  transform:rotate(160deg);
+#dia>div:nth-child(14n+9){
+  transform:rotate(205.6deg);
+}
+#dia>div:nth-child(14n+10){
+  transform:rotate(231.3deg);
+}
+#dia>div:nth-child(14n+11){
+  transform:rotate(257deg);
+}
+#dia>div:nth-child(14n+12){
+  transform:rotate(282.7deg);
+}
+#dia>div:nth-child(14n+13){
+  transform:rotate(308.4deg);
+}
+#dia>div:nth-child(14n){
+  transform:rotate(334.1deg);
 }
 a{
     transition: 0.5s cubic-bezier(0,1.58,.99,1.28);
     transform: scale(1);
   font-size: 15vh !important;
-    color: black;
+    color: #ffffff00;
     text-decoration: none;
     pointer-events: all;
     display: inline-block;
+  display: none;
+}
+#nu_1{
+  background-image: url(../img_num/2_1.svg);
+}
+#nu_2{
+  background-image: url(../img_num/2_2.svg);
+}
+#nu_3{
+  background-image: url(../img_num/2_3.svg);
+}
+#nu_4{
+  background-image: url(../img_num/2_4.svg);
+}
+#nu_5{
+  background-image: url(../img_num/2_5.svg);
+}
+#nu_6{
+  background-image: url(../img_num/2_6.svg);
+}
+#nu_7{
+  background-image: url(../img_num/2_7.svg);
+}
+#nu_8{
+  background-image: url(../img_num/2_8.svg);
+}
+#nu_9{
+  background-image: url(../img_num/2_9.svg);
 }
 #nu_10{
-  transform:rotate(180deg);
+  background-image: url(../img_num/2_10.svg);
 }
 #nu_11{
-  transform:rotate(200deg);
+  background-image: url(../img_num/2_11.svg);
 }
 #nu_12{
-  transform:rotate(220deg);
+  background-image: url(../img_num/2_12.svg);
 }
 #nu_13{
-  transform:rotate(240deg);
+  background-image: url(../img_num/2_13.svg);
 }
 #nu_14{
-  transform:rotate(260deg);
+  background-image: url(../img_num/2_14.svg);
 }
 #nu_15{
-  transform:rotate(280deg);
+  background-image: url(../img_num/2_15.svg);
 }
 #nu_16{
-  transform:rotate(300deg);
+  background-image: url(../img_num/2_16.svg);
 }
 #nu_17{
-  transform:rotate(320deg);
+  background-image: url(../img_num/2_17.svg);
 }
 #nu_18{
-  transform:rotate(340deg);
+  background-image: url(../img_num/2_18.svg);
+}
+#nu_19{
+  background-image: url(../img_num/2_19.svg);
+}
+#nu_20{
+  background-image: url(../img_num/2_20.svg);
+}
+#nu_21{
+  background-image: url(../img_num/2_21.svg);
+}
+#nu_22{
+  background-image: url(../img_num/2_22.svg);
+}
+#nu_23{
+  background-image: url(../img_num/2_23.svg);
+}
+#nu_24{
+  background-image: url(../img_num/2_24.svg);
+}
+#nu_25{
+  background-image: url(../img_num/2_25.svg);
+}
+#nu_26{
+  background-image: url(../img_num/2_26.svg);
+}
+#nu_27{
+  background-image: url(../img_num/2_27.svg);
+}
+#nu_28{
+  background-image: url(../img_num/2_28.svg);
+}
+#nu_29{
+  background-image: url(../img_num/2_29.svg);
+}
+#nu_30{
+  background-image: url(../img_num/2_30.svg);
+}
+#nu_31{
+  background-image: url(../img_num/2_31.svg);
+}
+#nu_32{
+  background-image: url(../img_num/2_32.svg);
+}
+#nu_33{
+  background-image: url(../img_num/2_33.svg);
+}
+#nu_34{
+  background-image: url(../img_num/2_34.svg);
+}
+#nu_35{
+  background-image: url(../img_num/2_35.svg);
+}
+#nu_36{
+  background-image: url(../img_num/2_36.svg);
+}
+#nu_37{
+  background-image: url(../img_num/2_37.svg);
+}
+#nu_38{
+  background-image: url(../img_num/2_38.svg);
+}
+#nu_39{
+  background-image: url(../img_num/2_39.svg);
+}
+#nu_40{
+  background-image: url(../img_num/2_40.svg);
+}
+#nu_41{
+  background-image: url(../img_num/2_41.svg);
+}
+#nu_42{
+  background-image: url(../img_num/2_42.svg);
+}
+#nu_43{
+  background-image: url(../img_num/2_43.svg);
+}
+#nu_44{
+  background-image: url(../img_num/2_44.svg);
+}
+#nu_45{
+  background-image: url(../img_num/2_45.svg);
+}
+#nu_46{
+  background-image: url(../img_num/2_46.svg);
+}
+#nu_47{
+  background-image: url(../img_num/2_47.svg);
+}
+#nu_48{
+  background-image: url(../img_num/2_48.svg);
+}
+#nu_49{
+  background-image: url(../img_num/2_49.svg);
+}
+#nu_50{
+  background-image: url(../img_num/2_50.svg);
+}
+#nu_51{
+  background-image: url(../img_num/2_51.svg);
+}
+#nu_52{
+  background-image: url(../img_num/2_52.svg);
+}
+#nu_53{
+  background-image: url(../img_num/2_53.svg);
+}
+#nu_54{
+  background-image: url(../img_num/2_54.svg);
+}
+#nu_55{
+  background-image: url(../img_num/2_55.svg);
+}
+#nu_56{
+  background-image: url(../img_num/2_56.svg);
+}
+.nu{
+  background-size: auto 10%;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 </style>
 
 
 <div id="wrap">  
 <div id="dia">  
-  	<div  id='nu_1' class="nu"><a href='../detail.html'>1</a></div>
-    <div  id='nu_2' class="nu"><a href='../detail.html'>2</a></div>
-    <div  id='nu_3' class="nu"><a href='../detail.html'>3</a></div>
-    <div  id='nu_4' class="nu"><a href='../detail.html'>4</a></div>
-    <div  id='nu_5' class="nu"><a href='../detail.html'>5</a></div>
-    <div  id='nu_6' class="nu"><a href='../detail.html'>6</a></div>
-    <div  id='nu_7' class="nu"><a href='../detail.html'>7</a></div>
-    <div  id='nu_8' class="nu"><a href='../detail.html'>8</a></div>
-    <div  id='nu_9' class="nu"><a href='../detail.html'>9</a></div>
-    <div  id='nu_10' class="nu"><a href='../detail.html'>10</a></div>
-    <div  id='nu_11' class="nu"><a href='../detail.html'>11</a></div>
-    <div  id='nu_12' class="nu"><a href='../detail.html'>12</a></div>
-    <div  id='nu_13' class="nu"><a href='../detail.html'>13</a></div>
-    <div  id='nu_14' class="nu"><a href='../detail.html'>14</a></div>
+  	<div  id='nu_1' class="nu visible"><a href='../detail.html'>1</a></div>
+    <div  id='nu_2' class="nu visible"><a href='../detail.html'>2</a></div>
+    <div  id='nu_3' class="nu visible"><a href='../detail.html'>3</a></div>
+    <div  id='nu_4' class="nu visible"><a href='../detail.html'>4</a></div>
+    <div  id='nu_5' class="nu visible"><a href='../detail.html'>5</a></div>
+    <div  id='nu_6' class="nu visible"><a href='../detail.html'>6</a></div>
+    <div  id='nu_7' class="nu visible"><a href='../detail.html'>7</a></div>
+    <div  id='nu_8' class="nu visible"><a href='../detail.html'>8</a></div>
+    <div  id='nu_9' class="nu visible"><a href='../detail.html'>9</a></div>
+    <div  id='nu_10' class="nu visible"><a href='../detail.html'>10</a></div>
+
+    <div  id='nu_11' class="nu visible"><a href='../detail.html'>11</a></div>
+    <div  id='nu_12' class="nu visible"><a href='../detail.html'>12</a></div>
+    <div  id='nu_13' class="nu visible"><a href='../detail.html'>13</a></div>
+    <div  id='nu_14' class="nu visible"><a href='../detail.html'>14</a></div>
     <div  id='nu_15' class="nu"><a href='../detail.html'>15</a></div>
     <div  id='nu_16' class="nu"><a href='../detail.html'>16</a></div>
     <div  id='nu_17' class="nu"><a href='../detail.html'>17</a></div>
     <div  id='nu_18' class="nu"><a href='../detail.html'>18</a></div>
+    <div  id='nu_19' class="nu"><a href='../detail.html'>19</a></div>
+    <div  id='nu_20' class="nu"><a href='../detail.html'>20</a></div>
+
+    <div  id='nu_21' class="nu"><a href='../detail.html'>21</a></div>
+    <div  id='nu_22' class="nu"><a href='../detail.html'>22</a></div>
+    <div  id='nu_23' class="nu"><a href='../detail.html'>23</a></div>
+    <div  id='nu_24' class="nu"><a href='../detail.html'>24</a></div>
+    <div  id='nu_25' class="nu"><a href='../detail.html'>25</a></div>
+    <div  id='nu_26' class="nu"><a href='../detail.html'>26</a></div>
+    <div  id='nu_27' class="nu"><a href='../detail.html'>27</a></div>
+    <div  id='nu_28' class="nu"><a href='../detail.html'>28</a></div>
+    <div  id='nu_29' class="nu"><a href='../detail.html'>29</a></div>
+    <div  id='nu_30' class="nu"><a href='../detail.html'>30</a></div>
+
+    <div  id='nu_31' class="nu"><a href='../detail.html'>21</a></div>
+    <div  id='nu_32' class="nu"><a href='../detail.html'>22</a></div>
+    <div  id='nu_33' class="nu"><a href='../detail.html'>23</a></div>
+    <div  id='nu_34' class="nu"><a href='../detail.html'>24</a></div>
+    <div  id='nu_35' class="nu"><a href='../detail.html'>25</a></div>
+    <div  id='nu_36' class="nu"><a href='../detail.html'>26</a></div>
+    <div  id='nu_37' class="nu"><a href='../detail.html'>27</a></div>
+    <div  id='nu_38' class="nu"><a href='../detail.html'>28</a></div>
+    <div  id='nu_39' class="nu"><a href='../detail.html'>29</a></div>
+    <div  id='nu_40' class="nu"><a href='../detail.html'>30</a></div>
+
+    <div  id='nu_41' class="nu"><a href='../detail.html'>31</a></div>
+    <div  id='nu_42' class="nu"><a href='../detail.html'>32</a></div>
+    <div  id='nu_43' class="nu"><a href='../detail.html'>33</a></div>
+    <div  id='nu_44' class="nu"><a href='../detail.html'>34</a></div>
+    <div  id='nu_45' class="nu"><a href='../detail.html'>35</a></div>
+    <div  id='nu_46' class="nu"><a href='../detail.html'>36</a></div>
+    <div  id='nu_47' class="nu"><a href='../detail.html'>37</a></div>
+    <div  id='nu_48' class="nu"><a href='../detail.html'>38</a></div>
+    <div  id='nu_49' class="nu"><a href='../detail.html'>39</a></div>
+    <div  id='nu_50' class="nu"><a href='../detail.html'>40</a></div>
+
+    <div  id='nu_51' class="nu"><a href='../detail.html'>51</a></div>
+    <div  id='nu_52' class="nu"><a href='../detail.html'>52</a></div>
+    <div  id='nu_53' class="nu"><a href='../detail.html'>53</a></div>
+    <div  id='nu_54' class="nu"><a href='../detail.html'>54</a></div>
+    <div  id='nu_55' class="nu"><a href='../detail.html'>55</a></div>
+    <div  id='nu_0' class="nu"><a href='../detail.html'>56</a></div>
 </div>
 </div>
 

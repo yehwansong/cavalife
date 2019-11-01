@@ -54,10 +54,12 @@ $( document ).ready(function() {
     wrap.addEventListener('touchend', end, false);
     var sp
     var mp
+    var h = window.innerHeight
 	var k_1 = 0
 	var k_2 = 225
+  var addedamount = 0
     var counter = 0
-    var counter_2 = 0
+    var counter_2 = 1
 	animation_t()
 	var pressed = false
     var fast_rot_val = 0
@@ -66,19 +68,51 @@ $( document ).ready(function() {
     var rotating_rep
     var rotating_rev_rep
     var pressed = false
+    aligna()
+    function aligna(){
+      var a = document.getElementById('content_1').getElementsByTagName('a')
+      console.log(a)
+        for (var i = a.length - 1; i >= 0; i--) {
+          if(i%5  == 0){
+            var left = 0
+            var row = Math.floor(i/5)
+          }
+          if(i%5 == 1){
+            var left = 25
+            var row = Math.floor(i/5)
+          }
+          if(i%5 == 2){
+            var left = 50
+            var row = Math.floor(i/5)
+          }
+          if(i%5 == 3){
+            var left = 12.5
+            var row = Math.floor(i/5) + 0.5
+          }
+          if(i%5 == 4){
+            var left = 37.5
+            var row = Math.floor(i/5) + 0.5
+          }
+          a[i].style.left = left + '%'
+          a[i].style.top = row *0.36 + '%'
+        }
+
+    }
+
 	function animation_t(){
 		if(!pressed){
     rotating_touch = false
 			k_1 = k_1 - 0.1
 			k_2 = k_2 - 0.1
 			$('#content_1').css({'top':k_1+'%'})
+      console.log
+      if(k_1 < -1*($('#content_1').outerHeight()*(0.5+addedamount)/h)
+        ){
+        addedamount++
+        $( ".last_"+(addedamount-1) ).after( "<a href='../detail.html'>1<a href='../detail.html'>2<a href='../detail.html'>3<a href='../detail.html'>4<a href='../detail.html'>5<a href='../detail.html'>6<a href='../detail.html'>7<a href='../detail.html'>8<a href='../detail.html'>9<a href='../detail.html'>10<a href='../detail.html'>11<a href='../detail.html'>12<a href='../detail.html'>13<a href='../detail.html'>14<a href='../detail.html'>15<a href='../detail.html'>16<a href='../detail.html'>17<a href='../detail.html'>18<a href='../detail.html'>19<a href='../detail.html'>20<a href='../detail.html'>21<a href='../detail.html'>22<a href='../detail.html'>23<a href='../detail.html'>24<a href='../detail.html'>25<a href='../detail.html'>26<a href='../detail.html'>27<a href='../detail.html'>28<a href='../detail.html'>29<a href='../detail.html'>30<a href='../detail.html'>31<a href='../detail.html'>32<a href='../detail.html'>33<a href='../detail.html'>34<a href='../detail.html'>35<a href='../detail.html'>36<a href='../detail.html'>37<a href='../detail.html'>38<a href='../detail.html'>39<a href='../detail.html'>40<a href='../detail.html'>41<a href='../detail.html'>42<a href='../detail.html'>43<a href='../detail.html'>44<a href='../detail.html'>45<a href='../detail.html'>46<a href='../detail.html'>47<a href='../detail.html'>48<a href='../detail.html'>49<a href='../detail.html'>50<a href='../detail.html'>51<a href='../detail.html'>52<a href='../detail.html'>53<a href='../detail.html'>54<a href='../detail.html'>55<a href='../detail.html' >56</a><a class='last_"+addedamount+"'></a>" )
+        console.log(addedamount)
+      }
 			$('#content_2').css({'top':k_2+'%'})
-			if(k_1<-350){
-				k_1 = 100
-			}
-			if(k_2<-350){
-				k_2 = 100
-			}
 		}
 			setTimeout(function(){
 				animation_t()
@@ -96,7 +130,7 @@ function easeOutQuart (t, b, c, d) {
             clearTimeout(rotating_rep);
             clearTimeout(rotating_rev_rep);
         }
-		pressed = true
+		    pressed = true
         sp = e.touches[0].clientY;
         mp = 0
         counter = 0
@@ -109,7 +143,6 @@ function easeOutQuart (t, b, c, d) {
         mp = (e.touches[0].clientY - sp)/10; 
         console.log(mp)
 			$('#content_1').css({'top':k_1 + mp+'%'})
-			$('#content_2').css({'top':k_2 + mp+'%'})
 	}
 	function end(e){
         if(counter < 15 && counter>3){
@@ -121,7 +154,6 @@ function easeOutQuart (t, b, c, d) {
         }else{
             pressed = false
                 k_1 = k_1 + mp
-                k_2 = k_2 + mp
         }
 	}
 function rotating(j_1,j_2,mp){
@@ -144,13 +176,7 @@ function rotating(j_1,j_2,mp){
             }, 10);
         }else{
             rotating_ing = false
-            console.log(k_1 + 50 + mp)
-            console.log(j_1 + mp + fast_rot_val)
-            console.log(mp)
-            k_1 = k_1 + 50
-            k_2 = k_2 + 50
-            // k_1 = parseInt($('#content_1').css('top'), 10);
-                // k_2 = $('#content_2').css('top')
+            k_1 = j_1 + mp + fast_rot_val
             pressed = false
         }
 }
@@ -159,12 +185,10 @@ function rotating_rev(j_1,j_2,mp){
       counter_2++ 
       fast_rot_val =  easeOutQuart(counter_2*3,0,50,600)
             $('#content_1').css({'top':j_1 + mp - fast_rot_val+'%'})
-            $('#content_2').css({'top':j_2 + mp - fast_rot_val+'%'})
       $('#wrap').on('touchstart', function(e){
           rotating_ing = false
           rotating_touch = true
           k_1 = j_1 + mp - fast_rot_val
-          k_2 = j_2 + mp - fast_rot_val
           start(e)
           return;
       })
@@ -174,8 +198,7 @@ function rotating_rev(j_1,j_2,mp){
             }, 10);
         }else{
             rotating_ing = false
-            k_1 = k_1 - 50
-            k_2 = k_2 - 50
+            k_1 = j_1 + mp - fast_rot_val
             pressed = false
         }  
 }
@@ -199,15 +222,16 @@ html, body{
 /* Set the animation, color, size and hide the text */
 
 a{
-	height: 3.33%;
+	height: 0.18%;
 	font-size: 15vh !important;
 	display: inline-block;
 	width: 25%;
 	text-align: center;
 	line-height: 1;
+  position: absolute;
 }
 a:hover{
-	color: red
+	/*color: red*/
 }
 /* Set the font, lean the board, position it */
 #board {
@@ -219,7 +243,7 @@ a:hover{
     position: absolute;
     font-weight: bold;
     overflow: hidden;
-    font-size: 350%;
+    font-size: 17.5%;
     height: 250%;
     width: 125vw;
     bottom: 0;
@@ -227,33 +251,25 @@ a:hover{
 
 /* Set the scrolling animation and position it */
 #content_1 {
-	height: 225%;
+	height: 4500%;
 	left: 0;
 	width: 125vw;
 	position: absolute;
 	top: 0%;
 	overflow: hidden;
 }
-#content_2 {
-	height: 225%;
-	left: 0;
-	width: 125vw;
-	position: absolute;
-	top: 200%;
-	overflow: hidden;
-}
 a{
-    color: black;
+    color: #ffffff00;
     text-decoration: none;
 }
 #title, #subtitle {
   text-align: center;
 }
 #board>div>a:nth-child(5n-1){
-	margin-left: 12.5%
+	/*margin-left: 12.5%*/
 }
 #board>div>a:nth-child(5n){
-  margin-right: 12.5%
+  /*margin-right: 12.5%*/
 }
 @keyframes scroll_1 {
     0% {
@@ -270,6 +286,179 @@ a{
     100% {
         top: -100%;
     }
+}
+#content_1 a{
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#content_1 a:nth-child(56n+1){
+  background-image: url(../img_num/1_1.svg);
+}
+#content_1 a:nth-child(56n+2){
+  background-image: url(../img_num/1_2.svg);
+}
+#content_1 a:nth-child(56n+3){
+  background-image: url(../img_num/1_3.svg);
+}
+#content_1 a:nth-child(56n+4){
+  background-image: url(../img_num/1_4.svg);
+}
+#content_1 a:nth-child(56n+5){
+  background-image: url(../img_num/1_5.svg);
+}
+#content_1 a:nth-child(56n+6){
+  background-image: url(../img_num/1_6.svg);
+}
+#content_1 a:nth-child(56n+7){
+  background-image: url(../img_num/1_7.svg);
+}
+#content_1 a:nth-child(56n+8){
+  background-image: url(../img_num/1_8.svg);
+}
+#content_1 a:nth-child(56n+9){
+  background-image: url(../img_num/1_9.svg);
+}
+#content_1 a:nth-child(56n+10){
+  background-image: url(../img_num/1_10.svg);
+}
+#content_1 a:nth-child(56n+11){
+  background-image: url(../img_num/1_11.svg);
+}
+#content_1 a:nth-child(56n+12){
+  background-image: url(../img_num/1_12.svg);
+}
+#content_1 a:nth-child(56n+13){
+  background-image: url(../img_num/1_13.svg);
+}
+#content_1 a:nth-child(56n+14){
+  background-image: url(../img_num/1_14.svg);
+}
+#content_1 a:nth-child(56n+15){
+  background-image: url(../img_num/1_15.svg);
+}
+#content_1 a:nth-child(56n+16){
+  background-image: url(../img_num/1_16.svg);
+}
+#content_1 a:nth-child(56n+17){
+  background-image: url(../img_num/1_17.svg);
+}
+#content_1 a:nth-child(56n+18){
+  background-image: url(../img_num/1_18.svg);
+}
+#content_1 a:nth-child(56n+19){
+  background-image: url(../img_num/1_19.svg);
+}
+#content_1 a:nth-child(56n+20){
+  background-image: url(../img_num/1_20.svg);
+}
+#content_1 a:nth-child(56n+21){
+  background-image: url(../img_num/1_21.svg);
+}
+#content_1 a:nth-child(56n+22){
+  background-image: url(../img_num/1_22.svg);
+}
+#content_1 a:nth-child(56n+23){
+  background-image: url(../img_num/1_23.svg);
+}
+#content_1 a:nth-child(56n+24){
+  background-image: url(../img_num/1_24.svg);
+}
+#content_1 a:nth-child(56n+25){
+  background-image: url(../img_num/1_25.svg);
+}
+#content_1 a:nth-child(56n+26){
+  background-image: url(../img_num/1_26.svg);
+}
+#content_1 a:nth-child(56n+27){
+  background-image: url(../img_num/1_27.svg);
+}
+#content_1 a:nth-child(56n+28){
+  background-image: url(../img_num/1_28.svg);
+}
+#content_1 a:nth-child(56n+29){
+  background-image: url(../img_num/1_29.svg);
+}
+#content_1 a:nth-child(56n+30){
+  background-image: url(../img_num/1_30.svg);
+}
+#content_1 a:nth-child(56n+31){
+  background-image: url(../img_num/1_31.svg);
+}
+#content_1 a:nth-child(56n+32){
+  background-image: url(../img_num/1_32.svg);
+}
+#content_1 a:nth-child(56n+33){
+  background-image: url(../img_num/1_33.svg);
+}
+#content_1 a:nth-child(56n+34){
+  background-image: url(../img_num/1_34.svg);
+}
+#content_1 a:nth-child(56n+35){
+  background-image: url(../img_num/1_35.svg);
+}
+#content_1 a:nth-child(56n+36){
+  background-image: url(../img_num/1_36.svg);
+}
+#content_1 a:nth-child(56n+37){
+  background-image: url(../img_num/1_37.svg);
+}
+#content_1 a:nth-child(56n+38){
+  background-image: url(../img_num/1_38.svg);
+}
+#content_1 a:nth-child(56n+39){
+  background-image: url(../img_num/1_39.svg);
+}
+#content_1 a:nth-child(56n+40){
+  background-image: url(../img_num/1_40.svg);
+}
+#content_1 a:nth-child(56n+41){
+  background-image: url(../img_num/1_41.svg);
+}
+#content_1 a:nth-child(56n+42){
+  background-image: url(../img_num/1_42.svg);
+}
+#content_1 a:nth-child(56n+43){
+  background-image: url(../img_num/1_43.svg);
+}
+#content_1 a:nth-child(56n+44){
+  background-image: url(../img_num/1_44.svg);
+}
+#content_1 a:nth-child(56n+45){
+  background-image: url(../img_num/1_45.svg);
+}
+#content_1 a:nth-child(56n+46){
+  background-image: url(../img_num/1_46.svg);
+}
+#content_1 a:nth-child(56n+47){
+  background-image: url(../img_num/1_47.svg);
+}
+#content_1 a:nth-child(56n+48){
+  background-image: url(../img_num/1_48.svg);
+}
+#content_1 a:nth-child(56n+49){
+  background-image: url(../img_num/1_49.svg);
+}
+#content_1 a:nth-child(56n+50){
+  background-image: url(../img_num/1_50.svg);
+}
+#content_1 a:nth-child(56n+51){
+  background-image: url(../img_num/1_51.svg);
+}
+#content_1 a:nth-child(56n+52){
+  background-image: url(../img_num/1_52.svg);
+}
+#content_1 a:nth-child(56n+53){
+  background-image: url(../img_num/1_53.svg);
+}
+#content_1 a:nth-child(56n+54){
+  background-image: url(../img_num/1_54.svg);
+}
+#content_1 a:nth-child(56n+55){
+  background-image: url(../img_num/1_55.svg);
+}
+#content_1 a:nth-child(56n+56){
+  background-image: url(../img_num/1_56.svg);
 }
 </style>
 
@@ -331,171 +520,10 @@ a{
   	<a href='../detail.html'>52</a>
   	<a href='../detail.html'>53</a>
   	<a href='../detail.html'>54</a>
-  	<a href='../detail.html'>1</a>
-  	<a href='../detail.html'>2</a>
-  	<a href='../detail.html'>3</a>
-  	<a href='../detail.html'>4</a>
-  	<a href='../detail.html'>5</a>
-  	<a href='../detail.html'>6</a>
-  	<a href='../detail.html'>7</a>
-  	<a href='../detail.html'>8</a>
-  	<a href='../detail.html'>9</a>
-  	<a href='../detail.html'>10</a>
-  	<a href='../detail.html'>11</a>
-  	<a href='../detail.html'>12</a>
-  	<a href='../detail.html'>13</a>
-  	<a href='../detail.html'>14</a>
-  	<a href='../detail.html'>15</a>
-  	<a href='../detail.html'>16</a>
-  	<a href='../detail.html'>17</a>
-  	<a href='../detail.html'>18</a>
-  	<a href='../detail.html'>19</a>
-  	<a href='../detail.html'>20</a>
-  	<a href='../detail.html'>21</a>
-  	<a href='../detail.html'>22</a>
-  	<a href='../detail.html'>23</a>
-  	<a href='../detail.html'>24</a>
-  	<a href='../detail.html'>25</a>
-  	<a href='../detail.html'>26</a>
-  	<a href='../detail.html'>27</a>
-  	<a href='../detail.html'>28</a>
-  	<a href='../detail.html'>29</a>
-  	<a href='../detail.html'>30</a>
-  	<a href='../detail.html'>31</a>
-  	<a href='../detail.html'>32</a>
-  	<a href='../detail.html'>33</a>
-  	<a href='../detail.html'>34</a>
-  	<a href='../detail.html'>35</a>
-  	<a href='../detail.html'>36</a>
-  	<a href='../detail.html'>37</a>
-  	<a href='../detail.html'>38</a>
-  	<a href='../detail.html'>39</a>
-  	<a href='../detail.html'>40</a>
-  	<a href='../detail.html'>41</a>
-  	<a href='../detail.html'>42</a>
-  	<a href='../detail.html'>43</a>
-  	<a href='../detail.html'>44</a>
-  	<a href='../detail.html'>45</a>
-  	<a href='../detail.html'>46</a>
-  	<a href='../detail.html'>47</a>
-  	<a href='../detail.html'>48</a>
-  	<a href='../detail.html'>49</a>
-  	<a href='../detail.html'>50</a>
-  	<a href='../detail.html'>51</a>
-  	<a href='../detail.html'>52</a>
-  	<a href='../detail.html'>53</a>
-  	<a href='../detail.html'>54</a>
-  </div>  
-  <div id="content_2">
-  	<a href='../detail.html'>1</a>
-  	<a href='../detail.html'>2</a>
-  	<a href='../detail.html'>3</a>
-  	<a href='../detail.html'>4</a>
-  	<a href='../detail.html'>5</a>
-  	<a href='../detail.html'>6</a>
-  	<a href='../detail.html'>7</a>
-  	<a href='../detail.html'>8</a>
-  	<a href='../detail.html'>9</a>
-  	<a href='../detail.html'>10</a>
-  	<a href='../detail.html'>11</a>
-  	<a href='../detail.html'>12</a>
-  	<a href='../detail.html'>13</a>
-  	<a href='../detail.html'>14</a>
-  	<a href='../detail.html'>15</a>
-  	<a href='../detail.html'>16</a>
-  	<a href='../detail.html'>17</a>
-  	<a href='../detail.html'>18</a>
-  	<a href='../detail.html'>19</a>
-  	<a href='../detail.html'>20</a>
-  	<a href='../detail.html'>21</a>
-  	<a href='../detail.html'>22</a>
-  	<a href='../detail.html'>23</a>
-  	<a href='../detail.html'>24</a>
-  	<a href='../detail.html'>25</a>
-  	<a href='../detail.html'>26</a>
-  	<a href='../detail.html'>27</a>
-  	<a href='../detail.html'>28</a>
-  	<a href='../detail.html'>29</a>
-  	<a href='../detail.html'>30</a>
-  	<a href='../detail.html'>31</a>
-  	<a href='../detail.html'>32</a>
-  	<a href='../detail.html'>33</a>
-  	<a href='../detail.html'>34</a>
-  	<a href='../detail.html'>35</a>
-  	<a href='../detail.html'>36</a>
-  	<a href='../detail.html'>37</a>
-  	<a href='../detail.html'>38</a>
-  	<a href='../detail.html'>39</a>
-  	<a href='../detail.html'>40</a>
-  	<a href='../detail.html'>41</a>
-  	<a href='../detail.html'>42</a>
-  	<a href='../detail.html'>43</a>
-  	<a href='../detail.html'>44</a>
-  	<a href='../detail.html'>45</a>
-  	<a href='../detail.html'>46</a>
-  	<a href='../detail.html'>47</a>
-  	<a href='../detail.html'>48</a>
-  	<a href='../detail.html'>49</a>
-  	<a href='../detail.html'>50</a>
-  	<a href='../detail.html'>51</a>
-  	<a href='../detail.html'>52</a>
-  	<a href='../detail.html'>53</a>
-  	<a href='../detail.html'>54</a>
-  	<a href='../detail.html'>1</a>
-  	<a href='../detail.html'>2</a>
-  	<a href='../detail.html'>3</a>
-  	<a href='../detail.html'>4</a>
-  	<a href='../detail.html'>5</a>
-  	<a href='../detail.html'>6</a>
-  	<a href='../detail.html'>7</a>
-  	<a href='../detail.html'>8</a>
-  	<a href='../detail.html'>9</a>
-  	<a href='../detail.html'>10</a>
-  	<a href='../detail.html'>11</a>
-  	<a href='../detail.html'>12</a>
-  	<a href='../detail.html'>13</a>
-  	<a href='../detail.html'>14</a>
-  	<a href='../detail.html'>15</a>
-  	<a href='../detail.html'>16</a>
-  	<a href='../detail.html'>17</a>
-  	<a href='../detail.html'>18</a>
-  	<a href='../detail.html'>19</a>
-  	<a href='../detail.html'>20</a>
-  	<a href='../detail.html'>21</a>
-  	<a href='../detail.html'>22</a>
-  	<a href='../detail.html'>23</a>
-  	<a href='../detail.html'>24</a>
-  	<a href='../detail.html'>25</a>
-  	<a href='../detail.html'>26</a>
-  	<a href='../detail.html'>27</a>
-  	<a href='../detail.html'>28</a>
-  	<a href='../detail.html'>29</a>
-  	<a href='../detail.html'>30</a>
-  	<a href='../detail.html'>31</a>
-  	<a href='../detail.html'>32</a>
-  	<a href='../detail.html'>33</a>
-  	<a href='../detail.html'>34</a>
-  	<a href='../detail.html'>35</a>
-  	<a href='../detail.html'>36</a>
-  	<a href='../detail.html'>37</a>
-  	<a href='../detail.html'>38</a>
-  	<a href='../detail.html'>39</a>
-  	<a href='../detail.html'>40</a>
-  	<a href='../detail.html'>41</a>
-  	<a href='../detail.html'>42</a>
-  	<a href='../detail.html'>43</a>
-  	<a href='../detail.html'>44</a>
-  	<a href='../detail.html'>45</a>
-  	<a href='../detail.html'>46</a>
-  	<a href='../detail.html'>47</a>
-  	<a href='../detail.html'>48</a>
-  	<a href='../detail.html'>49</a>
-  	<a href='../detail.html'>50</a>
-  	<a href='../detail.html'>51</a>
-  	<a href='../detail.html'>52</a>
-  	<a href='../detail.html'>53</a>
-  	<a href='../detail.html'>54</a>
-  </div>  
+    <a href='../detail.html'>55</a>
+    <a href='../detail.html'>56</a>
+    <a class="last_0"></a>
+  </div> 
 </div>
 </div>
 

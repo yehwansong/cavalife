@@ -5,12 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.typekit.net/rhg1urw.css">
-    <link rel="stylesheet" href="css/dropdown4.css">
-    <link rel="stylesheet" href="css/index17.css">
-    <link rel="stylesheet" href="css/plate.css">
-    <link rel="stylesheet" href="css/style.css">
 <style>
   @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 body {
@@ -29,19 +23,23 @@ body {
     padding: 0;
   }
   #num{
+text-transform: uppercase;
+line-height: 1.9;
 margin-top: 0;
-font-size: 15vh !important;
 height: 10vw;
 width: 100vw;
 text-align: right;
-background-image: url('img/arrow.svg');
+font-size: 5.2vw;
+text-align: left;
+text-indent: 10vw;
+background-image: url('img/arrow.png');
 background-repeat: no-repeat;
-background-position: left;
-background-size: contain;
+background-position: 1%;
+background-size: auto 80%;
 position: fixed;
 top: 0;
   }
-  #img{
+  .img{
 background-color: rgb(246, 246, 246);
 width: 25vw;
 height: 25vw;
@@ -127,7 +125,7 @@ pointer-events: none
     z-index: 100;
     transition:0.1s cubic-bezier(.72,0,1,1)
   }
-  .img:active{
+  .imgactive{
     top: 0 !important;
     width: 100vw !important;
     height: 100% !important
@@ -137,6 +135,8 @@ pointer-events: none
       src="https://code.jquery.com/jquery-3.3.1.js"
       integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
       crossorigin="anonymous"></script>
+    <script src="data.js"></script>
+    <script src="image_data.js"></script>
     <script type="text/javascript">
       var isMobile = false;
         if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
@@ -144,10 +144,46 @@ pointer-events: none
             isMobile = true;
         }
     $( document ).ready(function() {
+        for (var i = im.length - 1; i >= 0; i--) {
+            im[i]
+        }
+        var hashnum = 20    
+        console.log(data.feed.entry[((hashnum-1) * 12)].content.$t); 
+        console.log(data.feed.entry[((hashnum-1) * 12)+1].content.$t);  
+
+        console.log(data.feed.entry[((hashnum-1) * 12)+2].content.$t);  
+
+        console.log(data.feed.entry[((hashnum-1) * 12)+3].content.$t);     
+        console.log(data.feed.entry[((hashnum-1) * 12)+4].content.$t);             
+
+        console.log(data.feed.entry[((hashnum-1) * 12)+5].content.$t);                
+        console.log(data.feed.entry[((hashnum -1)* 12)+6].content.$t);  
+
+        console.log(data.feed.entry[((hashnum-1) * 12)+7].content.$t);   
+        console.log(data.feed.entry[((hashnum-1) * 12)+9].content.$t);   
+        console.log(data.feed.entry[((hashnum-1) * 12)+10].content.$t);   
+        console.log(data.feed.entry[((hashnum-1) * 12)+11].content.$t); 
+
+
+
+
+        $('#artist').append(data.feed.entry[((hashnum-1) * 12)+0].content.$t);   
+        $('#prod').append(data.feed.entry[((hashnum-1) * 12)+1].content.$t);  
+
+        $('#artist_d').append(data.feed.entry[((hashnum-1) * 12)+2].content.$t);     
+        $('#prod_d').append(data.feed.entry[((hashnum-1) * 12)+3].content.$t);             
+
+        $('#artist_d_kr').append(data.feed.entry[((hashnum-1) * 12)+4].content.$t);                
+        $('#prod_d_kr').append(data.feed.entry[((hashnum-1) * 12)+5].content.$t);  
+
+        $('#size').append(data.feed.entry[((hashnum-1) * 12)+6].content.$t);   
+        $('#mat').append(data.feed.entry[((hashnum-1) * 12)+8].content.$t);   
+        $('#color').append(data.feed.entry[((hashnum-1) * 12)+9].content.$t);   
+        $('price').append(data.feed.entry[((hashnum-1) * 12)+10].content.$t); 
         $('#wrap').css({'padding-bottom' : $('#bottom_wrapper').outerHeight()})
     })
-    $(document).on('touchstart click', '#img', function(event){
-        console.log('dflskj')
+    $(document).on('touchstart click', '.img', function(event){
+        $
     });
     $('#wrap div').hover(function(){
         console.log(this.id)
@@ -156,77 +192,46 @@ pointer-events: none
 </head>
 <body>
     <div id="wrap"> 
-        <div id='num'></div>
-        <div id='img' class="img"></div>
+        <div id='num'>Back</div>
+        <div class="img">
+            
+        </div>
         <div id='artist'>
-        KIMYUNHA
         </div>
         <div id='prod'>
-            7" Record Crate (CAVA Edition)
         </div>
         <div id='artist_d_title'>
             Artist
         </div>
         <div id='artist_d'>
-            Artist : Welcome Records, a record shop located in Seoul near Dosan Park, is operated with albums selected by DJ Andow and Someone. Like the word Welcome, it introduces a wide range of recordings that are easy for beginners to record culture to single records for DJs not found in other record stores in Korea. Welcome Records also produces, sells, and distributes various music-related lifestyle items and clothing, and collaborates with various brands and develops community activities.
         </div>
         <div id='prod_d_title'>
             Work
         </div>
         <div id='prod_d'>
-            Work : Craft brand QH and Welcome Records' collaboration product, 7 "Record Crate, is built in 3D printing and is prefabricated. CAVA Edition, specially designed for CAVA's New York popup, includes a cap with a CAVA logo. Made of two colors, Natural and Aluminum.
         </div>
         <div id='artist_d_title_kr' class='kr'>
             작가
         </div>
         <div id='artist_d_kr' class="kr">
-도산공원 근방에 위치한 레코드샵인 웰컴 레코즈(Welcome Records)는 360사운즈를 대표하는 DJ Andow와 Someone이 직접 선별한 음반들을 중심으로 운영되는 레코드 스토어이다. 웰컴이란 단어처럼 레코드 문화를 처음 접하는 사람들도 쉽게 입문할 수 있는 음반들 부터 국내 타 레코드 스토어에선 찾을 수 없는 DJ들 위한 싱글 음반들까지 다양한 음반들을 소개하고 있다. 또한 여러 음악 관련 라이프 스타일 아이템들과 의류를 제작, 판매, 유통하며 다양한 브랜들과의 협업과 커뮤니티 활동을 전개하고있다.
         </div>
         <div id='prod_d_title_kr' class='kr'>
             작업
         </div>
         <div id='prod_d_kr' class="kr">
-크래프트 브랜드 QH와 웰컴레코즈의 협업제품 7" Record Crate는 3D 프린팅으로 제작되었으며, 조립식으로 구성되어 있다. CAVA의 이번 뉴욕 팝업을 위해 특별히 제작된 CAVA Edition은 CAVA로고가 그려진 뚜껑이 포함되어 있으며, Natural, Aluminum 2가지 색상으로 제작되었다.
         </div>
     <div id = "bottom_wrapper">
-        <!-- <div id='time'> -->
-        <!-- year -->
-        <!-- </div> -->
         <div id='size'>
-        <!-- Size :  -->
-        215*215*210
         </div>
         <div id='mat'>
-        <!-- Material :  -->
-        PLA plastic
         </div>
         <div id='color'>
-        <!-- Color :  -->
-        Natural, Aluminum
         </div>
         <div id='price'>
-        <!-- Price :  -->
-        $ 50.90
         </div>
         <a id="buy"> buynow </a>
     </div>
     </div>
-<!-- Artists: 
-Welcome Records, a record shop located in Seoul near Dosan Park, is operated with albums selected by DJ Andow and Someone. Like the word Welcome, it introduces a wide range of recordings that are easy for beginners to record culture to single records for DJs not found in other record stores in Korea. Welcome Records also produces, sells, and distributes various music-related lifestyle items and clothing, and collaborates with various brands and develops community activities.
-
-Work:
-Craft brand QH and Welcome Records' collaboration product, 7 "Record Crate, is built in 3D printing and is prefabricated. CAVA Edition, specially designed for CAVA's New York popup, includes a cap with a CAVA logo. Made of two colors, Natural and Aluminum.
-
-7" Record Crate (CAVA Edition)
-Size : 215*215*210
-Material : PLA plastic
-Color : Natural, Aluminum
-
-작가:
-도산공원 근방에 위치한 레코드샵인 웰컴 레코즈(Welcome Records)는 360사운즈를 대표하는 DJ Andow와 Someone이 직접 선별한 음반들을 중심으로 운영되는 레코드 스토어이다. 웰컴이란 단어처럼 레코드 문화를 처음 접하는 사람들도 쉽게 입문할 수 있는 음반들 부터 국내 타 레코드 스토어에선 찾을 수 없는 DJ들 위한 싱글 음반들까지 다양한 음반들을 소개하고 있다. 또한 여러 음악 관련 라이프 스타일 아이템들과 의류를 제작, 판매, 유통하며 다양한 브랜들과의 협업과 커뮤니티 활동을 전개하고있다.
-
-작업:
-크래프트 브랜드 QH와 웰컴레코즈의 협업제품 7" Record Crate는 3D 프린팅으로 제작되었으며, 조립식으로 구성되어 있다. CAVA의 이번 뉴욕 팝업을 위해 특별히 제작된 CAVA Edition은 CAVA로고가 그려진 뚜껑이 포함되어 있으며, Natural, Aluminum 2가지 색상으로 제작되었다. -->
 </body>
 </html>
 
