@@ -1,14 +1,39 @@
 
-#about{
-  text-transform: uppercase;
-  position: fixed;
-  right: 0;
-  font-size: 5vh;
-  line-height: 1;
-  color: red;
-    z-index: 100000000000;
+@font-face {
+    font-family: nimbus-sans;
+    src: url(../nimbussanreg.woff);
+}
+@font-face {
+    font-family: nimbus-sans-b;
+    src: url(../nimbussanbol.woff);
+}
+*{
+    font-family: 'nimbus-sans', "Noto Sans KR",serif !important;
+}
+#about {
+transform-origin: left top;
+/* transform: rotate(-90deg) translateX(-100%); */
+text-transform: uppercase;
+position: fixed;
+right: 0;
+font-size: 3vh;
+line-height: 0.9;
+/* color: red; */
+z-index: 100000000000;
+ border: 3px solid black; 
+/* border-radius: 50%; */
+/* padding-top: 4vw; */
+text-align: center;
+/* margin-right: 1vw; */
+padding-top: 1vw;
+padding-left: 1vw;
+padding-right: 1vw;
+/* width: 15vw; */
+/* height: 15vw; */
+font-family: nimbus-sans-b !important;
 }
 #about_d{
+    /*font-family: nimbus-sans-b !important;*/
     background: black;
     font-size: 6.2vw;
     font-weight: 400;
@@ -17,18 +42,18 @@
     z-index: 100000000000;
     position: fixed;
     text-align: left;
-    padding: 1vw;
     right: 0;
     top: 0;
     height: 0%;
     width: 0vw;
     overflow: hidden;
 
-    transition : height 0.5s ease-out,width 0.5s ease-out,color 0.2s ease-out;
+    transition : height 0.2s cubic-bezier(.8,.33,.89,.54),width 0.2s cubic-bezier(.8,.33,.89,.54),color 0.2s ease-out;
 }
 .about_d_open{
     height: 100% !important;
     width: 100vw !important;
+    padding: 1vw;
 }
 .about_d_open_color{
     color: white !important

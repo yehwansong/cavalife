@@ -19,13 +19,6 @@
                 overflow: hidden;
                 pointer-events: none;
               }
-              @font-face {
-                font-family: FoundersGrotesk;
-                src: url(FoundersGrotesk-Semibold.woff);
-              }
-              *{
-                font-family: FoundersGrotesk;
-              }
 		</style>
 	</head>
 <body>
@@ -38,6 +31,11 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 <script type="text/javascript">
+if(window.location.hash.split('#')[1]==='redirected'){
+  window.location.hash = ' '
+}else{
+   window.location.href = '../main.html'
+}
 document.addEventListener('touchmove', function(e) {
     e.preventDefault();
 }, { passive: false });       
@@ -48,10 +46,6 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     isMobile = true;
 }
 $( document ).ready(function() {
-    wrap = document.getElementById('wrap'),
-    wrap.addEventListener('touchstart', start, false);
-    wrap.addEventListener('touchmove', move, false);
-    wrap.addEventListener('touchend', end, false);
     var sp
     var mp
     var h = window.innerHeight
@@ -68,6 +62,7 @@ $( document ).ready(function() {
     var rotating_rep
     var rotating_rev_rep
     var pressed = false
+    var k_1_round
     aligna()
     function aligna(){
       var a = document.getElementById('content_1').getElementsByTagName('a')
@@ -78,23 +73,23 @@ $( document ).ready(function() {
             var row = Math.floor(i/5)
           }
           if(i%5 == 1){
-            var left = 25
+            var left = 35
             var row = Math.floor(i/5)
           }
           if(i%5 == 2){
-            var left = 50
+            var left = 70
             var row = Math.floor(i/5)
           }
           if(i%5 == 3){
-            var left = 12.5
+            var left = 17.5
             var row = Math.floor(i/5) + 0.5
           }
           if(i%5 == 4){
-            var left = 37.5
+            var left = 52.5
             var row = Math.floor(i/5) + 0.5
           }
           a[i].style.left = left + '%'
-          a[i].style.top = row *0.36 + '%'
+          a[i].style.top = row *0.3 + '%'
         }
 
     }
@@ -105,19 +100,22 @@ $( document ).ready(function() {
 			k_1 = k_1 - 0.1
 			k_2 = k_2 - 0.1
 			$('#content_1').css({'top':k_1+'%'})
-      console.log
+      console.log(k_1)
       if(k_1 < -1*($('#content_1').outerHeight()*(0.5+addedamount)/h)
         ){
         addedamount++
-        $( ".last_"+(addedamount-1) ).after( "<a href='../detail.html'>1<a href='../detail.html'>2<a href='../detail.html'>3<a href='../detail.html'>4<a href='../detail.html'>5<a href='../detail.html'>6<a href='../detail.html'>7<a href='../detail.html'>8<a href='../detail.html'>9<a href='../detail.html'>10<a href='../detail.html'>11<a href='../detail.html'>12<a href='../detail.html'>13<a href='../detail.html'>14<a href='../detail.html'>15<a href='../detail.html'>16<a href='../detail.html'>17<a href='../detail.html'>18<a href='../detail.html'>19<a href='../detail.html'>20<a href='../detail.html'>21<a href='../detail.html'>22<a href='../detail.html'>23<a href='../detail.html'>24<a href='../detail.html'>25<a href='../detail.html'>26<a href='../detail.html'>27<a href='../detail.html'>28<a href='../detail.html'>29<a href='../detail.html'>30<a href='../detail.html'>31<a href='../detail.html'>32<a href='../detail.html'>33<a href='../detail.html'>34<a href='../detail.html'>35<a href='../detail.html'>36<a href='../detail.html'>37<a href='../detail.html'>38<a href='../detail.html'>39<a href='../detail.html'>40<a href='../detail.html'>41<a href='../detail.html'>42<a href='../detail.html'>43<a href='../detail.html'>44<a href='../detail.html'>45<a href='../detail.html'>46<a href='../detail.html'>47<a href='../detail.html'>48<a href='../detail.html'>49<a href='../detail.html'>50<a href='../detail.html'>51<a href='../detail.html'>52<a href='../detail.html'>53<a href='../detail.html'>54<a href='../detail.html'>55<a href='../detail.html' >56</a><a class='last_"+addedamount+"'></a>" )
-        console.log(addedamount)
+        $( ".last_"+(addedamount-1) ).after( "<a href='../detail.html#1'>1<a href='../detail.html#2'>2<a href='../detail.html#3'>3<a href='../detail.html#4'>4<a href='../detail.html#5'>5<a href='../detail.html#6'>6<a href='../detail.html#7'>7<a href='../detail.html#8'>8<a href='../detail.html#9'>9<a href='../detail.html#10'>10<a href='../detail.html#11'>11<a href='../detail.html#12'>12<a href='../detail.html#13'>13<a href='../detail.html#14'>14<a href='../detail.html#15'>15<a href='../detail.html#16'>16<a href='../detail.html#17'>17<a href='../detail.html#18'>18<a href='../detail.html#19'>19<a href='../detail.html#20'>20<a href='../detail.html#21'>21<a href='../detail.html#22'>22<a href='../detail.html#23'>23<a href='../detail.html#24'>24<a href='../detail.html#25'>25<a href='../detail.html#26'>26<a href='../detail.html#27'>27<a href='../detail.html#28'>28<a href='../detail.html#29'>29<a href='../detail.html#30'>30<a href='../detail.html#31'>31<a href='../detail.html#32'>32<a href='../detail.html#33'>33<a href='../detail.html#34'>34<a href='../detail.html#35'>35<a href='../detail.html#36'>36<a href='../detail.html#37'>37<a href='../detail.html#38'>38<a href='../detail.html#39'>39<a href='../detail.html#40'>40<a href='../detail.html#41'>41<a href='../detail.html#42'>42<a href='../detail.html#43'>43<a href='../detail.html#44'>44<a href='../detail.html#45'>45<a href='../detail.html#46'>46<a href='../detail.html#47'>47<a href='../detail.html#48'>48<a href='../detail.html#49'>49<a href='../detail.html#50'>50<a href='../detail.html#51'>51<a href='../detail.html#52'>52<a href='../detail.html#53'>53<a href='../detail.html#54'>54<a href='../detail.html#55'>55<a href='../detail.html#56' >56</a><a class='last_"+addedamount+"'></a>" )
+          aligna()
       }
-			$('#content_2').css({'top':k_2+'%'})
 		}
 			setTimeout(function(){
 				animation_t()
 			}, 10);
 	}
+    wrap = document.getElementById('wrap'),
+    wrap.addEventListener('touchstart', start, false);
+    wrap.addEventListener('touchmove', move, false);
+    wrap.addEventListener('touchend', end, false);
 
 function easeOutQuart (t, b, c, d) {
     t /= d;
@@ -126,28 +124,30 @@ function easeOutQuart (t, b, c, d) {
 };
 
 	function start(e){
+      console.log(k_1)
+        sp = e.touches[0].clientY;
         if(rotating_ing){
             clearTimeout(rotating_rep);
             clearTimeout(rotating_rev_rep);
         }
 		    pressed = true
-        sp = e.touches[0].clientY;
         mp = 0
         counter = 0
         counter_2 = 0
 	}
 	function move(e){
+        mp = (e.touches[0].clientY - sp)*100/h; 
         setTimeout(function(){
             counter ++
         }, 1);
-        mp = (e.touches[0].clientY - sp)/10; 
-        console.log(mp)
-			$('#content_1').css({'top':k_1 + mp+'%'})
+      console.log(k_1)
+			$('#content_1').css({'top':k_1 +mp+'%'})
 	}
 	function end(e){
         if(counter < 15 && counter>3){
             if(mp>0){
                 rotating(k_1,k_2,mp)
+    console.log(k_1)
             }else{
                 rotating_rev(k_1,k_2,mp)
             }
@@ -157,11 +157,11 @@ function easeOutQuart (t, b, c, d) {
         }
 	}
 function rotating(j_1,j_2,mp){
+    console.log(j_1 + mp)
       rotating_ing = true
       counter_2++ 
       fast_rot_val =  easeOutQuart(counter_2*3,0,50,600)
             $('#content_1').css({'top':j_1 + mp + fast_rot_val+'%'})
-            $('#content_2').css({'top':j_2 + mp + fast_rot_val+'%'})
       $('#wrap').on('touchstart', function(e){
           rotating_ing = false
           rotating_touch = true
@@ -237,7 +237,7 @@ a:hover{
 #board {
     position: absolute;
     overflow: hidden;
-    transform: perspective(300px) rotateX(12.5deg) rotateY(12.5deg) rotateZ(-7deg) translateX(17vw);
+    transform: perspective(300px) rotateX(14.5deg) rotateY(14.5deg) rotateZ(-13deg) translateX(32vw) scale(1.2);
     transform-origin: 50% 100%;
     text-align: justify;
     position: absolute;
@@ -288,7 +288,7 @@ a{
     }
 }
 #content_1 a{
-  background-size: contain;
+  background-size: 110%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -466,62 +466,62 @@ a{
 <div id="wrap">  
 <div id="board">  
   <div id="content_1">
-  	<a href='../detail.html'>1</a>
-  	<a href='../detail.html'>2</a>
-  	<a href='../detail.html'>3</a>
-  	<a href='../detail.html'>4</a>
-  	<a href='../detail.html'>5</a>
-  	<a href='../detail.html'>6</a>
-  	<a href='../detail.html'>7</a>
-  	<a href='../detail.html'>8</a>
-  	<a href='../detail.html'>9</a>
-  	<a href='../detail.html'>10</a>
-  	<a href='../detail.html'>11</a>
-  	<a href='../detail.html'>12</a>
-  	<a href='../detail.html'>13</a>
-  	<a href='../detail.html'>14</a>
-  	<a href='../detail.html'>15</a>
-  	<a href='../detail.html'>16</a>
-  	<a href='../detail.html'>17</a>
-  	<a href='../detail.html'>18</a>
-  	<a href='../detail.html'>19</a>
-  	<a href='../detail.html'>20</a>
-  	<a href='../detail.html'>21</a>
-  	<a href='../detail.html'>22</a>
-  	<a href='../detail.html'>23</a>
-  	<a href='../detail.html'>24</a>
-  	<a href='../detail.html'>25</a>
-  	<a href='../detail.html'>26</a>
-  	<a href='../detail.html'>27</a>
-  	<a href='../detail.html'>28</a>
-  	<a href='../detail.html'>29</a>
-  	<a href='../detail.html'>30</a>
-  	<a href='../detail.html'>31</a>
-  	<a href='../detail.html'>32</a>
-  	<a href='../detail.html'>33</a>
-  	<a href='../detail.html'>34</a>
-  	<a href='../detail.html'>35</a>
-  	<a href='../detail.html'>36</a>
-  	<a href='../detail.html'>37</a>
-  	<a href='../detail.html'>38</a>
-  	<a href='../detail.html'>39</a>
-  	<a href='../detail.html'>40</a>
-  	<a href='../detail.html'>41</a>
-  	<a href='../detail.html'>42</a>
-  	<a href='../detail.html'>43</a>
-  	<a href='../detail.html'>44</a>
-  	<a href='../detail.html'>45</a>
-  	<a href='../detail.html'>46</a>
-  	<a href='../detail.html'>47</a>
-  	<a href='../detail.html'>48</a>
-  	<a href='../detail.html'>49</a>
-  	<a href='../detail.html'>50</a>
-  	<a href='../detail.html'>51</a>
-  	<a href='../detail.html'>52</a>
-  	<a href='../detail.html'>53</a>
-  	<a href='../detail.html'>54</a>
-    <a href='../detail.html'>55</a>
-    <a href='../detail.html'>56</a>
+  	<a href='../detail.html#1'>1</a>
+  	<a href='../detail.html#2'>2</a>
+  	<a href='../detail.html#3'>3</a>
+  	<a href='../detail.html#4'>4</a>
+  	<a href='../detail.html#5'>5</a>
+  	<a href='../detail.html#6'>6</a>
+  	<a href='../detail.html#7'>7</a>
+  	<a href='../detail.html#8'>8</a>
+  	<a href='../detail.html#9'>9</a>
+  	<a href='../detail.html#10'>10</a>
+  	<a href='../detail.html#11'>11</a>
+  	<a href='../detail.html#12'>12</a>
+  	<a href='../detail.html#13'>13</a>
+  	<a href='../detail.html#14'>14</a>
+  	<a href='../detail.html#15'>15</a>
+  	<a href='../detail.html#16'>16</a>
+  	<a href='../detail.html#17'>17</a>
+  	<a href='../detail.html#18'>18</a>
+  	<a href='../detail.html#19'>19</a>
+  	<a href='../detail.html#20'>20</a>
+  	<a href='../detail.html#21'>21</a>
+  	<a href='../detail.html#22'>22</a>
+  	<a href='../detail.html#23'>23</a>
+  	<a href='../detail.html#24'>24</a>
+  	<a href='../detail.html#25'>25</a>
+  	<a href='../detail.html#26'>26</a>
+  	<a href='../detail.html#27'>27</a>
+  	<a href='../detail.html#28'>28</a>
+  	<a href='../detail.html#29'>29</a>
+  	<a href='../detail.html#30'>30</a>
+  	<a href='../detail.html#31'>31</a>
+  	<a href='../detail.html#32'>32</a>
+  	<a href='../detail.html#33'>33</a>
+  	<a href='../detail.html#34'>34</a>
+  	<a href='../detail.html#35'>35</a>
+  	<a href='../detail.html#36'>36</a>
+  	<a href='../detail.html#37'>37</a>
+  	<a href='../detail.html#38'>38</a>
+  	<a href='../detail.html#39'>39</a>
+  	<a href='../detail.html#40'>40</a>
+  	<a href='../detail.html#41'>41</a>
+  	<a href='../detail.html#42'>42</a>
+  	<a href='../detail.html#43'>43</a>
+  	<a href='../detail.html#44'>44</a>
+  	<a href='../detail.html#45'>45</a>
+  	<a href='../detail.html#46'>46</a>
+  	<a href='../detail.html#47'>47</a>
+  	<a href='../detail.html#48'>48</a>
+  	<a href='../detail.html#49'>49</a>
+  	<a href='../detail.html#50'>50</a>
+  	<a href='../detail.html#51'>51</a>
+  	<a href='../detail.html#52'>52</a>
+  	<a href='../detail.html#53'>53</a>
+  	<a href='../detail.html#54'>54</a>
+    <a href='../detail.html#55'>55</a>
+    <a href='../detail.html#56'>56</a>
     <a class="last_0"></a>
   </div> 
 </div>

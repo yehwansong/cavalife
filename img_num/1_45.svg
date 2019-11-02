@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 365 290"><title>Untitled-4</title><g id="Layer_4" data-name="Layer 4"><path d="M108.14,187.88V122.59h24.18v65.29h48.37v21.77H132.32v50.78H108.14V209.65H42.85V74.22H67V187.88Z"/><path d="M322.15,74.22V98.4H198.82V74.22ZM282.25,154c17.66,8.95,29,28.54,29,49.58,0,32.89-21.52,54.41-54.41,54.41-20.56,0-43.53-9.19-58-23V207.23h2.42c15.23,14.51,37.24,24.18,55.62,24.18,24.91,0,41.11-11.12,41.11-27.81a29.2,29.2,0,0,0-15.72-25.39L198.82,137.1V112.91Z"/></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 365 290" style="enable-background:new 0 0 365 290;" xml:space="preserve">
+<style type="text/css">
+	.st0{stroke:#000000;stroke-width:5;stroke-miterlimit:10;}
+</style>
+<title>Untitled-4</title>
+<g id="Layer_4">
+	<path class="st0" d="M108.1,187.9v-65.3h24.2v65.3h48.4v21.8h-48.4v50.8h-24.2v-50.8H42.8V74.2H67v113.7H108.1z"/>
+	<path class="st0" d="M322.1,74.2v24.2H198.8V74.2H322.1z M282.2,154c17.7,8.9,29,28.5,29,49.6c0,32.9-21.5,54.4-54.4,54.4
+		c-20.6,0-43.5-9.2-58-23v-27.8h2.4c15.2,14.5,37.2,24.2,55.6,24.2c24.9,0,41.1-11.1,41.1-27.8c-0.2-10.7-6.2-20.4-15.7-25.4
+		l-83.4-41.1v-24.2L282.2,154z"/>
+</g>
+</svg>
