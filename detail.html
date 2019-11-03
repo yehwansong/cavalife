@@ -17,6 +17,7 @@
     }
     *{
         font-family: 'nimbus-sans', "Noto Sans KR",serif !important;
+        word-break: keep-all;
     }
   body, html{
     overflow: hidden;
@@ -90,15 +91,21 @@ pointer-events: none;
 }
 #artist_d_title_kr,
 #prod_d_title_kr{
-    height: 5.2vw;
-    margin-top: 0.8vw
+height: 5.2vw;
+margin-top: 0.8vw;
+line-height: 1.5 !important;
 }
     
 #artist{
-    margin-top: 10vw;
-    border-bottom: 0px solid black;
-    border-top: 1.5px solid black;
+line-height: 1.4;
+height: 5.8vw;
+margin-top: 10vw;
+/* border-bottom: 0px solid black; */
+border-top: 1.5px solid black;
 }
+#prod{
+/* line-height: 1.2; */
+height: 5.2vw;}
 #prod_d_kr{
     border-bottom: 0px solid black;
     border-bottom: 0px solid black;
@@ -119,15 +126,19 @@ pointer-events: none;
 #price,
 #buy{
 }
+#size{
+margin-top: 0.8vw;}
 #buy{
-    text-transform: uppercase;
-    padding-bottom: 3vw;
-    padding-top: 3vw;
-    font-size: 6vw;
-    width: 92vw;
-    display: inline-block;
-    margin: 2vw;
-    border: 1.5px solid black;
+text-transform: uppercase;
+padding-bottom: 3vw;
+padding-top: 5vw;
+font-size: 6vw;
+width: 92vw;
+display: inline-block;
+margin: 2vw;
+border: 1.5px solid black;
+line-height: 0.9;
+margin-top: 0
 }
 .kr{
     font-size: 4.2vw !important;
@@ -249,7 +260,7 @@ pointer-events: none;
 </head>
 <body>
     <div id="wrap"> 
-        <a id='num' href="main.html">Back</a>
+        <a id='num' href="main.html#re">Back</a>
         <div id='artist'>
         </div>
         <div id='prod'>
