@@ -31,11 +31,11 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 <script type="text/javascript">
-if(window.location.hash.split('#')[1]==='redirected'){
-  window.location.hash = ' '
-}else{
-   window.location.href = '../main.html'
-}
+// if(window.location.hash.split('#')[1]==='redirected'){
+//   window.location.hash = ' '
+// }else{
+//    window.location.href = '../main.html'
+// }
 document.addEventListener('touchmove', function(e) {
     e.preventDefault();
 }, { passive: false });       
@@ -50,6 +50,7 @@ $( document ).ready(function() {
     var mp
     var h = window.innerHeight
 	var k_1 = 0
+  var startk_1
 	var k_2 = 225
   var addedamount = 0
     var counter = 0
@@ -96,12 +97,12 @@ $( document ).ready(function() {
 
 	function animation_t(){
 		if(!pressed){
+      startk_1 = 0
     rotating_touch = false
-			k_1 = k_1 - 0.1
-			k_2 = k_2 - 0.1
-			$('#content_1').css({'top':k_1+'%'})
+			k_1 = k_1 - 1
+			$('#content_1').css({'top':k_1})
       console.log(k_1)
-      if(k_1 < -1*($('#content_1').outerHeight()*(0.5+addedamount)/h)
+      if(k_1 < -1*($('#content_1').outerHeight()*(addedamount)/h)
         ){
         addedamount++
         $( ".last_"+(addedamount-1) ).after( "<a href='../detail.html#1'>1<a href='../detail.html#2'>2<a href='../detail.html#3'>3<a href='../detail.html#4'>4<a href='../detail.html#5'>5<a href='../detail.html#6'>6<a href='../detail.html#7'>7<a href='../detail.html#8'>8<a href='../detail.html#9'>9<a href='../detail.html#10'>10<a href='../detail.html#11'>11<a href='../detail.html#12'>12<a href='../detail.html#13'>13<a href='../detail.html#14'>14<a href='../detail.html#15'>15<a href='../detail.html#16'>16<a href='../detail.html#17'>17<a href='../detail.html#18'>18<a href='../detail.html#19'>19<a href='../detail.html#20'>20<a href='../detail.html#21'>21<a href='../detail.html#22'>22<a href='../detail.html#23'>23<a href='../detail.html#24'>24<a href='../detail.html#25'>25<a href='../detail.html#26'>26<a href='../detail.html#27'>27<a href='../detail.html#28'>28<a href='../detail.html#29'>29<a href='../detail.html#30'>30<a href='../detail.html#31'>31<a href='../detail.html#32'>32<a href='../detail.html#33'>33<a href='../detail.html#34'>34<a href='../detail.html#35'>35<a href='../detail.html#36'>36<a href='../detail.html#37'>37<a href='../detail.html#38'>38<a href='../detail.html#39'>39<a href='../detail.html#40'>40<a href='../detail.html#41'>41<a href='../detail.html#42'>42<a href='../detail.html#43'>43<a href='../detail.html#44'>44<a href='../detail.html#45'>45<a href='../detail.html#46'>46<a href='../detail.html#47'>47<a href='../detail.html#48'>48<a href='../detail.html#49'>49<a href='../detail.html#50'>50<a href='../detail.html#51'>51<a href='../detail.html#52'>52<a href='../detail.html#53'>53<a href='../detail.html#54'>54<a href='../detail.html#55'>55<a href='../detail.html#56' >56</a><a class='last_"+addedamount+"'></a>" )
@@ -124,53 +125,56 @@ function easeOutQuart (t, b, c, d) {
 };
 
 	function start(e){
-      console.log(k_1)
+      pressed = true
+      if(startk_1 == 0){
+        startk_1 = k_1
+      }
+      console.log(startk_1)
         sp = e.touches[0].clientY;
         if(rotating_ing){
             clearTimeout(rotating_rep);
             clearTimeout(rotating_rev_rep);
         }
-		    pressed = true
         mp = 0
         counter = 0
         counter_2 = 0
 	}
 	function move(e){
-        mp = (e.touches[0].clientY - sp)*100/h; 
+        mp = (e.touches[0].clientY - sp); 
         setTimeout(function(){
             counter ++
         }, 1);
-      console.log(k_1)
-			$('#content_1').css({'top':k_1 +mp+'%'})
+      console.log(startk_1)
+			$('#content_1').css({'top':startk_1 +mp})
 	}
 	function end(e){
         if(counter < 15 && counter>3){
             if(mp>0){
-                rotating(k_1,k_2,mp)
-    console.log(k_1)
+                rotating(startk_1,k_2,mp)
+    console.log(startk_1)
             }else{
-                rotating_rev(k_1,k_2,mp)
+                rotating_rev(startk_1,k_2,mp)
             }
         }else{
             pressed = false
-                k_1 = k_1 + mp
+                k_1 = startk_1 + mp
         }
 	}
 function rotating(j_1,j_2,mp){
     console.log(j_1 + mp)
       rotating_ing = true
       counter_2++ 
-      fast_rot_val =  easeOutQuart(counter_2*3,0,50,600)
-            $('#content_1').css({'top':j_1 + mp + fast_rot_val+'%'})
+      fast_rot_val =  easeOutQuart(counter_2*3,0,850,600)
+            $('#content_1').css({'top':j_1 + mp + fast_rot_val})
       $('#wrap').on('touchstart', function(e){
           rotating_ing = false
           rotating_touch = true
-          k_1 = j_1 + mp + fast_rot_val
+          startk_1 = j_1 + mp + fast_rot_val
           k_2 = j_2 + mp + fast_rot_val
           start(e)
           return;
       })
-        if(  fast_rot_val<=48 ){
+        if(  fast_rot_val<=848 ){
             rotating_rep = setTimeout(function(){
                 rotating(j_1,j_2,mp)
             }, 10);
@@ -183,16 +187,16 @@ function rotating(j_1,j_2,mp){
 function rotating_rev(j_1,j_2,mp){
       rotating_ing = true
       counter_2++ 
-      fast_rot_val =  easeOutQuart(counter_2*3,0,50,600)
-            $('#content_1').css({'top':j_1 + mp - fast_rot_val+'%'})
+      fast_rot_val =  easeOutQuart(counter_2*3,0,850,600)
+            $('#content_1').css({'top':j_1 + mp - fast_rot_val})
       $('#wrap').on('touchstart', function(e){
           rotating_ing = false
           rotating_touch = true
-          k_1 = j_1 + mp - fast_rot_val
+          startk_1 = j_1 + mp - fast_rot_val
           start(e)
           return;
       })
-        if(   fast_rot_val<=48){
+        if(   fast_rot_val<=848){
             rotating_rev_rep = setTimeout(function(){
                 rotating_rev(j_1,j_2,mp)
             }, 10);
@@ -229,6 +233,7 @@ a{
 	text-align: center;
 	line-height: 1;
   position: absolute;
+  pointer-events: none !important
 }
 a:hover{
 	/*color: red*/
