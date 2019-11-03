@@ -19,7 +19,7 @@ right: 0;
 font-size: 3vh;
 line-height: 0.9;
 /* color: red; */
-z-index: 100000000000;
+z-index: 100000000;
  border: 3px solid black; 
 /* border-radius: 50%; */
 /* padding-top: 4vw; */
@@ -49,6 +49,40 @@ font-family: nimbus-sans-b !important;
     overflow: hidden;
 
     transition : height 0.2s cubic-bezier(.8,.33,.89,.54),width 0.2s cubic-bezier(.8,.33,.89,.54),color 0.2s ease-out;
+}
+#about_d>span{
+  position: absolute;
+  top: 40vh;
+  transform: translateY(-50%);
+  width: 80vw;
+  left: 10vw;
+  text-align: center;
+    font-size: 6vw;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.12;
+
+}
+#close{
+  text-align: right;
+}
+#readmore{
+z-index: 100000;
+position: absolute;
+bottom: 15px;
+text-align: center;
+display: block;
+width: 100vw;
+color: white;
+font-size: 6vw !important;
+line-height: 1;
+height: auto;
+}
+#about_d>span>.kr{
+    word-break: keep-all;
+    font-size: 5vw !important;
+    line-height: 1.3 !important;
+    font-weight: 500 !important;
 }
 .about_d_open{
     height: 100% !important;
