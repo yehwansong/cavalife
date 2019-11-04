@@ -20,17 +20,20 @@ setTimeout(function(){
   $('#cs').removeClass('show')
 },1700)
 setTimeout(function(){
+  $('#dis').addClass('show')
+},2000)
+setTimeout(function(){
+  $('#dis').removeClass('show')
+},3700)
+setTimeout(function(){
     if(Math.floor(Math.random() * 2)>0){
       window.location.href = window.location.href.replace("main.html", "1/index.html#redirected");
     }else{
       window.location.href = window.location.href.replace("main.html", "2/index.html#redirected");
     }
-},2000)
-
-
+},4000)
   $('#cs').addClass('show')
 }
-
 })
 </script>
 <style>
@@ -41,12 +44,12 @@ setTimeout(function(){
   *{
         font-family: nimbus-sans;
   }
-  #cs{
+  #cs, #dis{
     width: 100vw;
     top: 40vh;
     transform:translateY(-50%);
     text-transform: uppercase;
-    font-size: 7vw;
+    font-size: 6.5vw;
     text-align: center;
     position: absolute;
     line-height: 1;
@@ -66,7 +69,7 @@ setTimeout(function(){
   }
   img{
     /*left: 50%;*/
-    width: 30vw;
+    width: 80vw;
     position: relative;
     /*transform: translateX(-50%);*/
   }
@@ -97,8 +100,12 @@ setTimeout(function(){
   
     <canvas id="canvas" resize hidpi="off" style="position: absolute; left: 0; top: 0"></canvas>
     <div id="cs"> 
-      <div>Hi!<br>we<br>are</div>
-      <img src="CAVA_logo.svg">
+      <div>Welcome to</div>
+      <img src="img/cavaselects-01.png">
+    </div>
+    <div id='dis'>
+      Curious about an art piece? <brs>
+      Just click the number!  
     </div>
 
 </body>

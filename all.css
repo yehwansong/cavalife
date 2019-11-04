@@ -32,6 +32,13 @@ padding-right: 1vw;
 /* height: 15vw; */
 font-family: nimbus-sans-b !important;
 }
+#about_d img{
+filter: invert(1);
+position: absolute;
+width: 27vw;
+left: 36.5vw;
+top: 18vh;
+}
 #about_d{
     /*font-family: nimbus-sans-b !important;*/
     background: black;
@@ -52,7 +59,7 @@ font-family: nimbus-sans-b !important;
 }
 #about_d>span{
   position: absolute;
-  top: 40vh;
+  top: 45vh;
   transform: translateY(-50%);
   width: 80vw;
   left: 10vw;
@@ -69,12 +76,12 @@ font-family: nimbus-sans-b !important;
 #readmore{
 z-index: 100000;
 position: absolute;
-bottom: 15px;
+bottom: 10vh;
 text-align: center;
 display: block;
 width: 100vw;
 color: white;
-font-size: 6vw !important;
+font-size: 5.5vw !important;
 line-height: 1;
 height: auto;
 }
