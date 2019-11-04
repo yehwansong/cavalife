@@ -234,7 +234,7 @@ if(hashnum == 17){
 <div style='background-image : url("artwork_image/17_1_1.png")'></div>
 </div>
 		<div class='img img_2'>
-<div style='background-image : url("artwork_image/17_1_2.png")'></div>
+<div style='background-image : url("artwork_image/17_2_1.png")'></div>
 </div>
 `)}
 if(hashnum == 19){
