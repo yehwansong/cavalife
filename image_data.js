@@ -54,6 +54,14 @@ if(hashnum == 5){
 <div style='background-image : url("artwork_image/5_1_6.jpg")'></div>
 <div style='background-image : url("artwork_image/5_1_7.jpg")'></div>
 </div>
+<div class='img img_2'>
+<div style='background-image : url("artwork_image/5_2_1.jpg")'></div>
+<div style='background-image : url("artwork_image/5_2_2.jpg")'></div>
+</div>
+<div class='img img_3'>
+<div style='background-image : url("artwork_image/5_3_1.jpg")'></div>
+<div style='background-image : url("artwork_image/5_3_2.jpg")'></div>
+</div>
 `)}
 if(hashnum == 6){
 	$('#imgbox').append(`
@@ -61,14 +69,6 @@ if(hashnum == 6){
 <div style='background-image : url("artwork_image/6_1_1.jpg")'></div>
 <div style='background-image : url("artwork_image/6_1_2.jpg")'></div>
 <div style='background-image : url("artwork_image/6_1_3.jpg")'></div>
-</div>
-<div class='img img_2'>
-<div style='background-image : url("artwork_image/6_2_1.jpg")'></div>
-<div style='background-image : url("artwork_image/6_2_2.jpg")'></div>
-</div>
-<div class='img img_3'>
-<div style='background-image : url("artwork_image/6_3_1.jpg")'></div>
-<div style='background-image : url("artwork_image/6_3_2.jpg")'></div>
 </div>
 `)}
 if(hashnum == 7){
@@ -83,26 +83,28 @@ if(hashnum == 8){
 <div class='img img_1'>
 <div style='background-image : url("artwork_image/8_1_1.jpg")'></div>
 <div style='background-image : url("artwork_image/8_1_2.jpg")'></div>
-<div style='background-image : url("artwork_image/8_1_3.jpg")'></div>
-<div style='background-image : url("artwork_image/8_1_4.jpg")'></div>
-<div style='background-image : url("artwork_image/8_1_5.jpg")'></div>
-<div style='background-image : url("artwork_image/8_1_6.jpg")'></div>
-<div style='background-image : url("artwork_image/8_1_7.jpg")'></div>
 </div>
 <div class='img img_2'>
 <div style='background-image : url("artwork_image/8_2_1.jpg")'></div>
 <div style='background-image : url("artwork_image/8_2_2.jpg")'></div>
-<div style='background-image : url("artwork_image/8_2_3.jpg")'></div>
-<div style='background-image : url("artwork_image/8_2_4.jpg")'></div>
-<div style='background-image : url("artwork_image/8_2_5.jpg")'></div>
 </div>
 <div class='img img_3'>
 <div style='background-image : url("artwork_image/8_3_1.jpg")'></div>
 <div style='background-image : url("artwork_image/8_3_2.jpg")'></div>
+
+<div style='background-image : url("artwork_image/8_3_3.jpg")'></div>
+<div style='background-image : url("artwork_image/8_3_4.jpg")'></div>
+<div style='background-image : url("artwork_image/8_3_5.jpg")'></div>
+<div style='background-image : url("artwork_image/8_3_6.jpg")'></div>
+<div style='background-image : url("artwork_image/8_3_7.jpg")'></div>
 </div>
 <div class='img img_4'>
 <div style='background-image : url("artwork_image/8_4_1.jpg")'></div>
 <div style='background-image : url("artwork_image/8_4_2.jpg")'></div>
+
+<div style='background-image : url("artwork_image/8_4_3.jpg")'></div>
+<div style='background-image : url("artwork_image/8_4_4.jpg")'></div>
+<div style='background-image : url("artwork_image/8_4_5.jpg")'></div>
 </div>
 `)}
 if(hashnum == 9){
@@ -148,23 +150,25 @@ if(hashnum == 14){
 <div style='background-image : url("artwork_image/14_2_8.jpg")'></div>
 <div style='background-image : url("artwork_image/14_2_9.jpg")'></div>
 <div style='background-image : url("artwork_image/14_2_10.jpg")'></div>
-<div style='background-image : url("artwork_image/14_2_11.jpg")'></div>
-<div style='background-image : url("artwork_image/14_2_12.jpg")'></div>
-<div style='background-image : url("artwork_image/14_2_13.jpg")'></div>
-<div style='background-image : url("artwork_image/14_2_14.jpg")'></div>
-<div style='background-image : url("artwork_image/14_2_15.jpg")'></div>
-<div style='background-image : url("artwork_image/14_2_16.jpg")'></div>
-<div style='background-image : url("artwork_image/14_2_17.jpg")'></div>
-<div style='background-image : url("artwork_image/14_2_18.jpg")'></div>
-<div style='background-image : url("artwork_image/14_2_19.jpg")'></div>
-<div style='background-image : url("artwork_image/14_2_20.jpg")'></div>
-<div style='background-image : url("artwork_image/14_2_21.jpg")'></div>
-<div style='background-image : url("artwork_image/14_2_22.jpg")'></div>
-<div style='background-image : url("artwork_image/14_2_23.jpg")'></div>
 </div>
 <div class='img img_3'>
 <div style='background-image : url("artwork_image/14_3_1.jpg")'></div>
 <div style='background-image : url("artwork_image/14_3_2.jpg")'></div>
+<div style='background-image : url("artwork_image/14_3_3.jpg")'></div>
+<div style='background-image : url("artwork_image/14_3_4.jpg")'></div>
+<div style='background-image : url("artwork_image/14_3_5.jpg")'></div>
+<div style='background-image : url("artwork_image/14_3_6.jpg")'></div>
+<div style='background-image : url("artwork_image/14_3_7.jpg")'></div>
+<div style='background-image : url("artwork_image/14_3_8.jpg")'></div>
+<div style='background-image : url("artwork_image/14_3_9.jpg")'></div>
+<div style='background-image : url("artwork_image/14_3_10.jpg")'></div>
+<div style='background-image : url("artwork_image/14_3_11.jpg")'></div>
+<div style='background-image : url("artwork_image/14_3_12.jpg")'></div>
+<div style='background-image : url("artwork_image/14_3_13.jpg")'></div>
+</div>
+<div class='img img_4'>
+<div style='background-image : url("artwork_image/14_4_1.jpg")'></div>
+<div style='background-image : url("artwork_image/14_4_2.jpg")'></div>
 </div>
 `)}
 if(hashnum == 15){
