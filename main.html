@@ -18,20 +18,20 @@ if(window.location.hash.split('#')[1]==='re'){
 }else{
 setTimeout(function(){
   $('#cs').removeClass('show')
-},1700)
+},3200)
 setTimeout(function(){
   $('#dis').addClass('show')
-},2000)
+},3500)
 setTimeout(function(){
   $('#dis').removeClass('show')
-},4700)
+},6200)
 setTimeout(function(){
     if(Math.floor(Math.random() * 2)>0){
       window.location.href = window.location.href.replace("main.html", "1/index.html#redirected");
     }else{
       window.location.href = window.location.href.replace("main.html", "2/index.html#redirected");
     }
-},5000)
+},6500)
   $('#cs').addClass('show')
 }
 })

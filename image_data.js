@@ -474,7 +474,32 @@ $('#imgbox').append(`
 <div style='background-image : url("artwork_image/56_1_5.jpg")'></div>
 </div>
 `)}
-
+if(hashnum == 52){
+$('#imgbox').append(`
+<div class='img img_1'>
+<div style='background-image : url("artwork_image/52_1_2.png")'></div>
+<div style='background-image : url("artwork_image/52_1_1.png")'></div>
+</div>
+`)}
+if(hashnum == 16){
+$('#imgbox').append(`
+<div class='img img_1'>
+<div style='background-image : url("artwork_image/16_1_6.jpeg")'></div>
+<div style='background-image : url("artwork_image/16_1_5.jpeg")'></div>
+<div style='background-image : url("artwork_image/16_1_4.jpeg")'></div>
+<div style='background-image : url("artwork_image/16_1_3.jpeg")'></div>
+<div style='background-image : url("artwork_image/16_1_2.jpeg")'></div>
+<div style='background-image : url("artwork_image/16_1_1.jpeg")'></div>
+</div>
+`)}
+if(hashnum == 10){
+$('#imgbox').append(`
+<div class='img img_1'>
+<div style='background-image : url("artwork_image/10_1_3.jpeg")'></div>
+<div style='background-image : url("artwork_image/10_1_2.jpeg")'></div>
+<div style='background-image : url("artwork_image/10_1_1.jpeg")'></div>
+</div>
+`)}
 
 
 })

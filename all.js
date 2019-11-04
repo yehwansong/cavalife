@@ -8,7 +8,7 @@ $( document ).ready(function() {
 		<div id='close'>Close</div>\
 		<a href = '../intro.html' id='readmore'>ABOUT<br>The Selects X CAVA<br>POP-UP STORE</a>\
 		</div>\
-	<div id='about'>About<br>Cava</div>\
+	<div id='about'>About</div>\
 	");
 	$('#about').click(function(){
 		$('#about_d').addClass('about_d_open')
