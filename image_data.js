@@ -65,8 +65,10 @@ if(hashnum == 6){
 <div class='img img_2'>
 <div style='background-image : url("artwork_image/6_2_1.jpg")'></div>
 <div style='background-image : url("artwork_image/6_2_2.jpg")'></div>
-<div style='background-image : url("artwork_image/6_2_3.jpg")'></div>
-<div style='background-image : url("artwork_image/6_2_4.jpg")'></div>
+</div>
+<div class='img img_3'>
+<div style='background-image : url("artwork_image/6_3_1.jpg")'></div>
+<div style='background-image : url("artwork_image/6_3_2.jpg")'></div>
 </div>
 `)}
 if(hashnum == 7){
@@ -185,6 +187,8 @@ if(hashnum == 18){
 <div style='background-image : url("artwork_image/18_1_4.jpg")'></div>
 <div style='background-image : url("artwork_image/18_1_5.jpg")'></div>
 <div style='background-image : url("artwork_image/18_1_6.jpg")'></div>
+</div>
+<div class='img img_2'>
 <div style='background-image : url("artwork_image/18_2_1.jpg")'></div>
 <div style='background-image : url("artwork_image/18_2_2.jpg")'></div>
 <div style='background-image : url("artwork_image/18_2_3.jpg")'></div>
@@ -196,9 +200,6 @@ if(hashnum == 23){
 	$('#imgbox').append(`
 <div class='img img_1'>
 <div style='background-image : url("artwork_image/23_1_1.jpg")'></div>
-<div style='background-image : url("artwork_image/23_1_2.jpg")'></div>
-<div style='background-image : url("artwork_image/23_1_3.jpg")'></div>
-<div style='background-image : url("artwork_image/23_1_4.jpg")'></div>
 </div>
 `)}
 if(hashnum == 11){
@@ -227,6 +228,8 @@ if(hashnum == 17){
 	$('#imgbox').append(`
 		<div class='img img_1'>
 <div style='background-image : url("artwork_image/17_1_1.png")'></div>
+</div>
+		<div class='img img_2'>
 <div style='background-image : url("artwork_image/17_1_2.png")'></div>
 </div>
 `)}
