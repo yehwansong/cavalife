@@ -39,6 +39,7 @@ position: absolute;
 width: 27vw;
 left: 36.5vw;
 top: 18vh;
+opacity: 0;transition: 0.2s
 }
 #about_d{
     /*font-family: nimbus-sans-b !important;*/
@@ -71,6 +72,9 @@ top: 18vh;
     line-height: 1.12;
 
 }
+.show{
+  opacity: 1 !important
+}
 #close{
   text-align: right;
 }
@@ -81,9 +85,8 @@ bottom: 10vh;
 text-align: center;
 display: block;
 width: 100vw;
-color: white;
-font-size: 5.5vw !important;
-line-height: 1;
+font-size: 5.2vw !important;
+line-height: 1.15;
 height: auto;
 }
 #about_d>span>.kr{

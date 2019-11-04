@@ -14,12 +14,16 @@ $( document ).ready(function() {
 		$('#about_d').addClass('about_d_open')
 		setTimeout(function(){
 			$('#about_d').addClass('about_d_open_color')
+			$('#about_d *').addClass('about_d_open_color')
+			$('img').addClass('show')
 		}, 500);
 	});
 	$('#close').click(function(){
 		$('#about_d').removeClass('about_d_open')
 		setTimeout(function(){
 			$('#about_d').removeClass('about_d_open_color')
+			$('#about_d *').removeClass('about_d_open_color')
+			$('img').removeClass('show')
 		}, 500);
 	})
 })
