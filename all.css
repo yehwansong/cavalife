@@ -11,6 +11,7 @@
     font-family: 'nimbus-sans', "Noto Sans KR",serif !important;
 }
 #about {
+height: 5.1vh;
 transform-origin: left top;
 /* transform: rotate(-90deg) translateX(-100%); */
 text-transform: uppercase;
@@ -30,7 +31,7 @@ padding-left: 1vw;
 padding-right: 1vw;
 /* width: 15vw; */
 /* height: 15vw; */
-font-family: 'nimbus-sans-b' !important;
+font-family: nimbus-sans-b !important;
 }
 #about_d img{
 filter: invert(1);

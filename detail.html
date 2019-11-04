@@ -219,7 +219,7 @@ margin-top: 0
         $('#mat').append(data.feed.entry[((hashnum-1) * 13)+8].content.$t);   
         $('#color').append(data.feed.entry[((hashnum-1) * 13)+9].content.$t);   
         $('price').append(data.feed.entry[((hashnum-1) * 13)+10].content.$t); 
-        $('#wrap').css({'padding-bottom' : $('#bottom_wrapper').outerHeight()+20})
+        $('#wrap').css({'padding-bottom' : $('#bottom_wrapper').outerHeight()+40})
         $(document).on('touchstart mousedown', '.img', function(event){
             counter = 0
             $(this).addClass('imgactive')
