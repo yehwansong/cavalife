@@ -30,7 +30,7 @@ padding-left: 1vw;
 padding-right: 1vw;
 /* width: 15vw; */
 /* height: 15vw; */
-font-family: nimbus-sans-b !important;
+font-family: 'nimbus-sans-b' !important;
 }
 #about_d img{
 filter: invert(1);
