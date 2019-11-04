@@ -54,11 +54,11 @@ if(hashnum == 5){
 <div style='background-image : url("artwork_image/5_1_6.jpg")'></div>
 <div style='background-image : url("artwork_image/5_1_7.jpg")'></div>
 </div>
-<div class='img img_2'>
+<div class='img img_3'>
 <div style='background-image : url("artwork_image/5_2_1.jpg")'></div>
 <div style='background-image : url("artwork_image/5_2_2.jpg")'></div>
 </div>
-<div class='img img_3'>
+<div class='img img_2'>
 <div style='background-image : url("artwork_image/5_3_1.jpg")'></div>
 <div style='background-image : url("artwork_image/5_3_2.jpg")'></div>
 </div>
@@ -126,7 +126,7 @@ if(hashnum == 10){
 `)}
 if(hashnum == 14){
 	$('#imgbox').append(`
-<div class='img img_1'>
+<div class='img img_3'>
 <div style='background-image : url("artwork_image/14_1_1.jpg")'></div>
 <div style='background-image : url("artwork_image/14_1_2.jpg")'></div>
 <div style='background-image : url("artwork_image/14_1_3.jpg")'></div>
@@ -139,7 +139,7 @@ if(hashnum == 14){
 <div style='background-image : url("artwork_image/14_1_10.jpg")'></div>
 <div style='background-image : url("artwork_image/14_1_11.jpg")'></div>
 </div>
-<div class='img img_2'>
+<div class='img img_4'>
 <div style='background-image : url("artwork_image/14_2_1.jpg")'></div>
 <div style='background-image : url("artwork_image/14_2_2.jpg")'></div>
 <div style='background-image : url("artwork_image/14_2_3.jpg")'></div>
@@ -151,7 +151,7 @@ if(hashnum == 14){
 <div style='background-image : url("artwork_image/14_2_9.jpg")'></div>
 <div style='background-image : url("artwork_image/14_2_10.jpg")'></div>
 </div>
-<div class='img img_3'>
+<div class='img img_2'>
 <div style='background-image : url("artwork_image/14_3_1.jpg")'></div>
 <div style='background-image : url("artwork_image/14_3_2.jpg")'></div>
 <div style='background-image : url("artwork_image/14_3_3.jpg")'></div>
@@ -166,7 +166,7 @@ if(hashnum == 14){
 <div style='background-image : url("artwork_image/14_3_12.jpg")'></div>
 <div style='background-image : url("artwork_image/14_3_13.jpg")'></div>
 </div>
-<div class='img img_4'>
+<div class='img img_1'>
 <div style='background-image : url("artwork_image/14_4_1.jpg")'></div>
 <div style='background-image : url("artwork_image/14_4_2.jpg")'></div>
 </div>
